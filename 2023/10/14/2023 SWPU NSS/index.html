@@ -1,302 +1,395 @@
 <!DOCTYPE html>
-
 <html lang="zh-Hans">
 
 <head>
-    
-    <title>2023 SWPU NSS - hao11</title>
-    <meta charset="UTF-8">
-    <meta name="keywords" content="">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5">
-    
-    <link rel="shortcut icon" href="/log.svg" type="image/x-icon" />
-    <meta name="description" content="Webcolorful_snake  开启环境，是个小游戏，先按思路，查看一下js源码，找到了this_is_real_flag  用ascii转换字符，得到了flag NSS_HTTP_CHEKER   开启环境，需要传参，伪造Cookie，UA头和XFF，利用BP抓包修改伪造，得到flag 一键连接  根据源码指示，一步一步传参绕过 md5_1 !&#x3D;&#x3D; md5_2 &amp;amp">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta name="x5-fullscreen" content="true">
+<meta name="full-screen" content="yes">
+<meta name="theme-color" content="#317EFB" />
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=0" name="viewport">
+<meta name="description" content="Webcolorful_snake  开启环境，是个小游戏，先按思路，查看一下js源码，找到了this_is_real_flag  用ascii转换字符，得到了flag NSS_HTTP_CHEKER   开启环境，需要传参，伪造Cookie，UA头和XFF，利用BP抓包修改伪造，得到flag 一键连接  根据源码指示，一步一步传参绕过 md5_1 !&#x3D;&#x3D; md5_2 &amp;amp">
 <meta property="og:type" content="article">
 <meta property="og:title" content="2023 SWPU NSS">
 <meta property="og:url" content="http://example.com/2023/10/14/2023%20SWPU%20NSS/index.html">
 <meta property="og:site_name" content="hao11">
 <meta property="og:description" content="Webcolorful_snake  开启环境，是个小游戏，先按思路，查看一下js源码，找到了this_is_real_flag  用ascii转换字符，得到了flag NSS_HTTP_CHEKER   开启环境，需要传参，伪造Cookie，UA头和XFF，利用BP抓包修改伪造，得到flag 一键连接  根据源码指示，一步一步传参绕过 md5_1 !&#x3D;&#x3D; md5_2 &amp;amp">
 <meta property="og:locale">
-<meta property="og:image" content="http://example.com/2023SWPUNSS/image-20231014142340306-1697265529942-2.png">
-<meta property="og:image" content="http://example.com/2023SWPUNSS/image-20231014142407268-1697265572122-5.png">
-<meta property="og:image" content="http://example.com/2023SWPUNSS/image-20231014142608834-1697265586009-8.png">
-<meta property="og:image" content="http://example.com/2023SWPUNSS/image-20231014144553894.png">
-<meta property="og:image" content="http://example.com/2023SWPUNSS/image-20231014144607026.png">
-<meta property="og:image" content="http://example.com/2023SWPUNSS/image-20231014144621112.png">
-<meta property="og:image" content="http://example.com/2023SWPUNSS/image-20231014150214287.png">
-<meta property="og:image" content="http://example.com/2023SWPUNSS/image-20231014150313994.png">
-<meta property="og:image" content="http://example.com/2023SWPUNSS/image-20231014153313625.png">
-<meta property="og:image" content="http://example.com/2023SWPUNSS/image-20231014153412551.png">
-<meta property="og:image" content="http://example.com/2023SWPUNSS/image-20231014171113461.png">
-<meta property="og:image" content="http://example.com/2023SWPUNSS/image-20231014171129601.png">
-<meta property="og:image" content="http://example.com/2023SWPUNSS/image-20231014171214712.png">
-<meta property="og:image" content="http://example.com/2023SWPUNSS/image-20231014171256467.png">
-<meta property="og:image" content="http://example.com/2023SWPUNSS/image-20231014171420569.png">
-<meta property="og:image" content="http://example.com/2023SWPUNSS/image-20231014171428209.png">
-<meta property="og:image" content="http://example.com/2023SWPUNSS/image-20231014171508687.png">
-<meta property="og:image" content="http://example.com/2023SWPUNSS/image-20231014172102238.png">
-<meta property="og:image" content="http://example.com/2023SWPUNSS/image-20231014172155417.png">
-<meta property="og:image" content="http://example.com/2023SWPUNSS/image-20231014172207294.png">
-<meta property="og:image" content="http://example.com/2023SWPUNSS/image-20231014172242111.png">
-<meta property="og:image" content="http://example.com/2023SWPUNSS/image-20231014173026685.png">
-<meta property="og:image" content="http://example.com/2023SWPUNSS/image-20231014173124517.png">
-<meta property="og:image" content="http://example.com/2023SWPUNSS/image-20231014173149597.png">
-<meta property="og:image" content="http://example.com/2023SWPUNSS/image-20231014222755324.png">
-<meta property="og:image" content="http://example.com/2023SWPUNSS/image-20231014222810045.png">
-<meta property="og:image" content="http://example.com/2023SWPUNSS/image-20231014222911441.png">
-<meta property="og:image" content="http://example.com/2023SWPUNSS/image-20231014222949051.png">
-<meta property="og:image" content="http://example.com/2023SWPUNSS/image-20231014223018659.png">
-<meta property="og:image" content="http://example.com/2023SWPUNSS/image-20231014223311696.png">
-<meta property="og:image" content="http://example.com/2023SWPUNSS/image-20231014183641733.png">
-<meta property="og:image" content="http://example.com/2023SWPUNSS/image-20231014184343041.png">
-<meta property="og:image" content="http://example.com/2023SWPUNSS/image-20231014184414416.png">
-<meta property="og:image" content="http://example.com/2023SWPUNSS/image-20231014184444923.png">
+<meta property="og:image" content="http://example.com/img/404.jpg">
+<meta property="og:image" content="http://example.com/img/404.jpg">
+<meta property="og:image" content="http://example.com/img/404.jpg">
+<meta property="og:image" content="http://example.com/img/404.jpg">
+<meta property="og:image" content="http://example.com/img/404.jpg">
+<meta property="og:image" content="http://example.com/img/404.jpg">
+<meta property="og:image" content="http://example.com/img/404.jpg">
+<meta property="og:image" content="http://example.com/img/404.jpg">
+<meta property="og:image" content="http://example.com/img/404.jpg">
+<meta property="og:image" content="http://example.com/img/404.jpg">
+<meta property="og:image" content="http://example.com/img/404.jpg">
+<meta property="og:image" content="http://example.com/img/404.jpg">
+<meta property="og:image" content="http://example.com/img/404.jpg">
+<meta property="og:image" content="http://example.com/img/404.jpg">
+<meta property="og:image" content="http://example.com/img/404.jpg">
+<meta property="og:image" content="http://example.com/img/404.jpg">
+<meta property="og:image" content="http://example.com/img/404.jpg">
+<meta property="og:image" content="http://example.com/img/404.jpg">
+<meta property="og:image" content="http://example.com/img/404.jpg">
+<meta property="og:image" content="http://example.com/img/404.jpg">
+<meta property="og:image" content="http://example.com/img/404.jpg">
+<meta property="og:image" content="http://example.com/img/404.jpg">
+<meta property="og:image" content="http://example.com/img/404.jpg">
+<meta property="og:image" content="http://example.com/img/404.jpg">
+<meta property="og:image" content="http://example.com/img/404.jpg">
+<meta property="og:image" content="http://example.com/img/404.jpg">
+<meta property="og:image" content="http://example.com/img/404.jpg">
+<meta property="og:image" content="http://example.com/img/404.jpg">
+<meta property="og:image" content="http://example.com/img/404.jpg">
+<meta property="og:image" content="http://example.com/img/404.jpg">
+<meta property="og:image" content="http://example.com/img/404.jpg">
+<meta property="og:image" content="http://example.com/img/404.jpg">
+<meta property="og:image" content="http://example.com/img/404.jpg">
+<meta property="og:image" content="http://example.com/img/404.jpg">
 <meta property="article:published_time" content="2023-10-14T06:38:14.332Z">
 <meta property="article:modified_time" content="2023-11-02T11:29:04.760Z">
 <meta property="article:author" content="hao11">
 <meta property="article:tag" content="CTF">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://example.com/2023SWPUNSS/image-20231014142340306-1697265529942-2.png">
-    
-<link rel="stylesheet" href="/lib/fancybox/fancybox.css">
-<link rel="stylesheet" href="/lib/justifiedGallery/justifiedGallery.min.css">
-<link rel="stylesheet" href="/lib/mdui_043tiny/mdui.css">
+<meta name="twitter:image" content="http://example.com/img/404.jpg">
 
 
-    <link rel="stylesheet" href="/lib/iconfont/iconfont.css?v=1699283245770">
-    
-    <link rel="stylesheet" href="/css/style.css?v=1699283245770">
+<title >2023 SWPU NSS</title>
+
+<!-- Favicon -->
+
+    <link href='/log1.svg?v=2.1.2' rel='icon' type='image/png' sizes='16x16' ></link>
+
+
+    <link href='/log.svg?v=2.1.2' rel='icon' type='image/png' sizes='32x32' ></link>
+
+
+    <link href='/log.svg?v=2.1.2' rel='apple-touch-icon' sizes='180x180' ></link>
+
+
+    <link href='/site.webmanifest' rel='manifest' ></link>
+
+
+<!-- Plugin -->
+
+
+
 
     
-        
-            <link rel="stylesheet" href="/custom.css?v=1699283245770">
-        
+<link rel="stylesheet" href="/css/plugins/bootstrap.row.css">
+
     
+<link rel="stylesheet" href="https://npm.elemecdn.com/@fancyapps/ui@4.0/dist/fancybox.css">
+
+    
+    
+
+
+
+
+<!-- Icon -->
+
+    
+<link rel="stylesheet" href="/css/plugins/font-awesome.min.css">
+
+
+
+
+<!-- Variable -->
+<script>window.ASYNC_CONFIG = {"hostname":"example.com","author":"hao11","root":"/","typed_text":["to Hao11's blog"],"theme_version":"2.1.2","theme":{"switch":true,"default":"auto"},"favicon":{"logo":"log.svg","icon16":"log1.svg","icon32":"log.svg","appleTouchIcon":"log.svg","webmanifest":"/site.webmanifest","visibilitychange":true,"hidden":"log2.svg","showText":"(/≧▽≦/)咦！又好了！","hideText":"(●—●)喔哟，崩溃啦！"},"i18n":{"placeholder":"搜索文章...","empty":"找不到您查询的内容: ${query}","hits":"找到 ${hits} 条结果","hits_time":"找到 ${hits} 条结果（用时 ${time} 毫秒）","author":"本文作者：","copyright_link":"本文链接：","copyright_license_title":"版权声明：","copyright_license_content":"本博客所有文章除特别声明外，均默认采用 undefined 许可协议。","copy_success":"复制成功","copy_failure":"复制失败","open_read_mode":"进入阅读模式","exit_read_mode":"退出阅读模式","notice_outdate_message":"距离上次更新已经 undefined 天了, 文章内容可能已经过时。","just":"刚刚","min":"分钟前","hour":"小时前","day":"天前","month":"个月前"},"swup":false,"plugin":{"flickr_justified_gallery":"https://npm.elemecdn.com/flickr-justified-gallery@latest/dist/fjGallery.min.js"},"icons":{"sun":"far fa-sun","moon":"far fa-moon","play":"fas fa-play","email":"far fa-envelope","next":"fas fa-arrow-right","calendar":"far fa-calendar-alt","clock":"far fa-clock","user":"far fa-user","back_top":"fas fa-arrow-up","close":"fas fa-times","search":"fas fa-search","reward":"fas fa-hand-holding-usd","user_tag":"fas fa-user-alt","toc_tag":"fas fa-th-list","read":"fas fa-book-reader","arrows":"fas fa-arrows-alt-h","double_arrows":"fas fa-angle-double-down","copy":"fas fa-copy"},"icontype":"font","highlight":{"plugin":"highlighjs","theme":true,"copy":true,"lang":true,"title":"default","height_limit":false},"toc":{"post_title":false}};</script>
+<script id="async-page-config">window.PAGE_CONFIG = {"isPost":true,"isHome":false,"postUpdate":"2023-11-02 19:29:04"};</script>
+
+<!-- Theme mode css -->
+<link data-swup-theme rel="stylesheet" href="/css/index.css?v=2.1.2" id="trm-switch-style">
+<script>
+    let defaultMode = ASYNC_CONFIG.theme.default !=='auto' ?  ASYNC_CONFIG.theme.default : (window.matchMedia("(prefers-color-scheme: light)").matches ? 'style-light' : 'style-dark')
+    let catchMode = localStorage.getItem('theme-mode') || defaultMode;
+    let type = catchMode === 'style-dark' ? 'add' : 'remove';
+    document.documentElement.classList[type]('dark')
+</script>
+
+<!-- CDN -->
+
+
+    
+    
+
+
+
+<!-- Site Analytics -->
+ 
 <meta name="generator" content="Hexo 6.3.0"></head>
 
-<body class="mdui-drawer-body-left">
-    <div id="nexmoe-background">
-        <div class="nexmoe-bg" style="background-image: url(beijing.jpg)"></div>
-        <div class="mdui-appbar mdui-shadow-0">
-            <div class="mdui-toolbar">
-                <a mdui-drawer="{target: '#drawer', swipe: true}" title="menu" class="mdui-btn mdui-btn-icon mdui-ripple"><i class="mdui-icon nexmoefont icon-menu"></i></a>
-                <div class="mdui-toolbar-spacer"></div>
-                <!--<a href="javascript:;" class="mdui-btn mdui-btn-icon"><i class="mdui-icon material-icons">search</i></a>-->
-                <a href="/" title="hao11" class="mdui-btn mdui-btn-icon"><img src="touxiang.jpeg" alt="hao11"></a>
+<body>
+
+  <!-- app wrapper -->
+  <div class="trm-app-frame">
+
+    <!-- page preloader -->
+    <div class="trm-preloader">
+    <div class="trm-holder">
+        <div class="preloader">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+    </div>
+</div>
+    <!-- page preloader end -->
+
+    <!-- change mode preloader -->
+    <div class="trm-mode-swich-animation-frame">
+    <div class="trm-mode-swich-animation">
+        <i class="i-sun"><i class="iconfont far fa-sun"></i></i>
+        <div class="trm-horizon"></div>
+        <i class="i-moon"><i class="iconfont far fa-moon"></i></i>
+    </div>
+</div>
+    <!-- change mode preloader end -->
+
+      <!-- scroll container -->
+      <div id="trm-dynamic-content" class="trm-swup-animation">
+        <div id="trm-scroll-container" class="trm-scroll-container" style="opacity: 0">
+            <!-- top bar -->
+            <header class="trm-top-bar">
+	<div class="container">
+		<div class="trm-left-side">
+			<!-- logo -->
+<a href="/" class="trm-logo-frame trm-anima-link">
+    
+        <img alt="logo" src="/log.svg">
+    
+    
+        <div class="trm-logo-text">
+            hao<span>11</span>
+        </div>
+    
+</a>
+<!-- logo end -->
+		</div>
+		<div class="trm-right-side">
+			<!-- menu -->
+<div class="trm-menu">
+    <nav>
+        <ul>
+            
+            <li class="menu-item-has-children ">
+                <a  href="/" target="">
+                    首页
+                </a>
+                
+            </li>
+            
+            <li class="menu-item-has-children ">
+                <a data-no-swup href="/archives/" target="">
+                    归档
+                </a>
+                
+            </li>
+            
+            <li class="menu-item-has-children ">
+                <a data-no-swup href="/categories/" target="">
+                    分类
+                </a>
+                
+            </li>
+            
+        </ul>
+    </nav>
+</div>
+<!-- menu end -->
+			
+    <!-- mode switcher place -->
+    <div class="trm-mode-switcher-place">
+        <div class="trm-mode-switcher">
+            <i class="iconfont far fa-sun"></i>
+            <input class="tgl tgl-light" id="trm-swich" type="checkbox">
+            <label class="trm-swich" for="trm-swich"></label>
+            <i class="iconfont far fa-moon"></i>
+        </div>
+    </div>
+    <!-- mode switcher place end -->
+
+			
+		</div>
+		<div class="trm-menu-btn">
+			<span></span>
+		</div>
+	</div>
+</header>
+            <!-- top bar end -->
+
+            <!-- body -->
+            
+<div class="trm-content-start">
+    <!-- banner -->
+    <div class="trm-banner">
+    
+    <!-- banner cover -->
+    <img style="object-position:top;object-fit:cover;" alt="banner" class="trm-banner-cover" src="/img/banner.png">
+    <!-- banner cover end -->
+    
+
+    <!-- banner content -->
+    <div class="trm-banner-content trm-overlay">
+        <div class="container">
+            <div class="row">
+                
+                <div class="col-lg-4"></div>
+                
+                <div class="col-lg-8">
+
+                    <!-- banner title -->
+                    <div class="trm-banner-text ">
+                        <div class="trm-label trm-mb-20">
+                            NEWS LETTER
+                        </div>
+                        <h1 class="trm-mb-30 trm-hsmb-font">
+                            2023 SWPU NSS
+                        </h1>
+
+                        
+                            <ul class="trm-breadcrumbs trm-label">
+                                <li>
+                                    <a href="/" class="trm-anima-link">Home</a>
+                                </li>
+                                <li>
+                                    <span>
+                                        2023
+                                    </span>
+                                </li>
+                            </ul>
+                        
+                    </div>
+                    <!-- banner title end -->
+
+                    <!-- scroll hint -->
+                    <span id="scroll-triger" class="trm-scroll-hint-frame">
+                        <div class="trm-scroll-hint"></div>
+                        <span class="trm-label">Scroll down</span>
+                    </span>
+                    <!-- scroll hint end -->
+
+                </div>
             </div>
         </div>
     </div>
-    <div id="nexmoe-header">
-        <div class="nexmoe-drawer mdui-drawer" id="drawer">
-    <div class="nexmoe-avatar mdui-ripple">
-        <a href="/" title="hao11">
-            <img src="touxiang.jpeg" alt="hao11" alt="hao11">
-        </a>
+    <!-- banner content end -->
+</div>
+    <!-- banner end -->
+    <div class="container">
+        <div class="row">
+            
+                <div class="trm-page-sidebar col-lg-4 hidden-sm">
+                    <!-- main card -->
+                    <div class="trm-main-card-frame trm-sidebar">
+    <div class="trm-main-card"> 
+        <!-- card header -->
+<div class="trm-mc-header">
+    <div class="trm-avatar-frame trm-mb-20">
+        <img alt="Avatar" class="trm-avatar" src="/touxiang.jpeg">
     </div>
-    <div class="nexmoe-count">
-        <div><span>Articles</span>7</div>
-        <div><span>Tags</span>2</div>
-        <div><span>Categories</span>3</div>
-    </div>
-    <div class="nexmoe-list mdui-list" mdui-collapse="{accordion: true}">
-        
-        <a class="nexmoe-list-item mdui-list-item mdui-ripple false" href="/" title="回到首页">
-            <i class="mdui-list-item-icon nexmoefont icon-home"></i>
-            <div class="mdui-list-item-content">
-                回到首页
-            </div>
-        </a>
-        
-        <a class="nexmoe-list-item mdui-list-item mdui-ripple false" href="/archive.html" title="文章归档">
-            <i class="mdui-list-item-icon nexmoefont icon-container"></i>
-            <div class="mdui-list-item-content">
-                文章归档
-            </div>
-        </a>
-        
-        <a class="nexmoe-list-item mdui-list-item mdui-ripple false" href="/PY.html" title="我的朋友">
-            <i class="mdui-list-item-icon nexmoefont icon-unorderedlist"></i>
-            <div class="mdui-list-item-content">
-                我的朋友
-            </div>
-        </a>
-        
-    </div>
-    <aside id="nexmoe-sidebar">
+    <h5 class="trm-name trm-mb-15">
+        hao11
+    </h5>
     
-        
-        <div class="nexmoe-widget-wrap">
-    <div class="nexmoe-widget nexmoe-search">
-         
-            <form id="search_form" action_e="https://cn.bing.com/search?q=site:nexmoe.com" onsubmit="return search();">
-                <label><input id="search_value" name="q" type="search" placeholder="Search"></label>
-            </form>
-         
-    </div>
+        <div class="trm-label">
+            Welcome
+            <span class="trm-typed-text">
+                <!-- Words for theme.user.typedText -->
+            </span>
+        </div>
+    
+</div>
+<!-- card header end -->
+        <!-- sidebar social -->
+
+<div class="trm-divider trm-mb-40 trm-mt-40"></div>
+<div class="trm-social">
+    
+        <a href="https://github.com" title="Github" rel="nofollow" target="_blank">
+            <i class="iconfont fab fa-github"></i>
+        </a>
+    
 </div>
 
-
-
-
+<!-- sidebar social end -->
+        <!-- info -->
+<div class="trm-divider trm-mb-40 trm-mt-40"></div>
+<ul class="trm-table trm-mb-20">
     
-        
-        
-  <div class="nexmoe-widget-wrap">
-    <h3 class="nexmoe-widget-title">Categories</h3>
-    <div class="nexmoe-widget">
-
-      <ul class="category-list">
-
-        
-
-
-        
-
-        
-
-        <li class="category-list-item">
-          <a class="category-list-link" href="/categories/CTF/">CTF</a>
-          <span class="category-list-count">5</span>
+        <li>
+            <div class="trm-label">
+                Residence:
+            </div>
+            <div class="trm-label trm-label-light">
+                Mars
+            </div>
         </li>
+    
+</ul>
+<!-- info end -->
 
         
-
-        <li class="category-list-item">
-          <a class="category-list-link" href="/categories/MISC/">MISC</a>
-          <span class="category-list-count">1</span>
-        </li>
-
-        
-
-        <li class="category-list-item">
-          <a class="category-list-link" href="/categories/WEB/">WEB</a>
-          <span class="category-list-count">1</span>
-        </li>
-
-        
-      </ul>
-
+    <div class="trm-divider trm-mb-40 trm-mt-40"></div>
+    <!-- action button -->
+    <div class="text-center">
+        <a href="mailto:xuezhenghao2002@163.com" class="trm-btn">
+            联系我
+            <i class="iconfont far fa-envelope"></i>
+        </a>
     </div>
-  </div>
+    <!-- action button end -->
 
-
-    
-        
-        
-  <div class="nexmoe-widget-wrap">
-    <div id="randomtagcloud" class="nexmoe-widget tagcloud nexmoe-rainbow">
-      <a href="/tags/CTF/" style="font-size: 20px;">CTF</a> <a href="/tags/php/" style="font-size: 10px;">php</a>
-    </div>
-    
-  </div>
-
-    
-        
-        
-        
-  <div class="nexmoe-widget-wrap">
-    <h3 class="nexmoe-widget-title">Archive</h3>
-    <div class="nexmoe-widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/">2023</a><span class="archive-list-count">7</span></li></ul>
-    </div>
-  </div>
-
-
-
-    
-        
-        
-  <div class="nexmoe-widget-wrap">
-    <h3 class="nexmoe-widget-title">Recent Posts</h3>
-    <div class="nexmoe-widget">
-      <ul>
-        
-          <li>
-            <a href="/2023/10/15/NewStarCTF2023week3/">NewStarCTF2023week3</a>
-          </li>
-        
-          <li>
-            <a href="/2023/10/15/NewStarCTF2023week2/">NewStarCTF2023week2</a>
-          </li>
-        
-          <li>
-            <a href="/2023/10/14/2023%20SWPU%20NSS/">2023 SWPU NSS</a>
-          </li>
-        
-          <li>
-            <a href="/2023/10/11/PolarD&N/">PolarD&amp;N</a>
-          </li>
-        
-          <li>
-            <a href="/2023/10/09/NewStarCTF2023week1/">NewStarCTF2023week1</a>
-          </li>
-        
-      </ul>
-    </div>
-  </div>
-
-    
-        
-        <div class="nexmoe-widget-wrap">
-    <div class="nexmoe-widget nexmoe-link">
-		<ul>
-        
-		</ul>
     </div>
 </div>
-<style>
-.nexmoe-widget-wrap .nexmoe-link ul li a {
-    text-align : center;
-}
-.nexmoe-widget-wrap .nexmoe-link ul li a img {
-    max-width : 100%;
-}
-.nexmoe-widget-wrap .nexmoe-link ul li a p {
-    margin: 10px 0;
-}
-</style>
-
-    
-</aside>
-    <div class="nexmoe-copyright">
-        &copy; 2023 hao11
-        Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
-        & <a href="https://github.com/theme-nexmoe/hexo-theme-nexmoe" target="_blank">Nexmoe</a>
-        
+                    <!-- main card end -->
+                </div>
+            
+            <div class="trm-page-content col-lg-8">
+                <div id="trm-content" class="trm-content">
+                    <div class="trm-post-info row hidden-sm">
+    <div class="col-sm-4">
+        <div class="trm-card trm-label trm-label-light text-center">
+            <i class="iconfont far fa-calendar-alt trm-icon"></i><br>
+            10/14
+        </div>
     </div>
-</div><!-- .nexmoe-drawer -->
+    <div class="col-sm-4">
+        <div class="trm-card trm-label trm-label-light text-center">
+            <i class="iconfont far fa-clock trm-icon"></i><br>
+            14:38
+        </div>
     </div>
-    <div id="nexmoe-content">
-        <div class="nexmoe-primary">
-            <div class="nexmoe-post">
-
-  <article>
-      
-          <div class="nexmoe-post-cover" style="padding-bottom: 56.71874999999999%;"> 
-              <img data-fancybox="gallery" src="beijing.jpg" alt="2023 SWPU NSS" loading="lazy">
-              <h1>2023 SWPU NSS</h1>
-          </div>
-      
-      
-      <div class="nexmoe-post-meta nexmoe-rainbow" style="margin:10px 0!important;">
-    <a><i class="nexmoefont icon-calendar-fill"></i>2023年10月14日</a>
+    <div class="col-sm-4">
+        <div id="post-author" class="trm-card trm-label trm-label-light text-center">
+            <i class="iconfont far fa-user trm-icon"></i><br>
+            hao11
+        </div>
+    </div>
 </div>
-      
-    <a><i class="nexmoefont icon-areachart"></i>约404字</a>
-    <a><i class="nexmoefont icon-time-circle-fill"></i>预计需要1分钟</a>
-
-
-      <h1 id="Web"><a href="#Web" class="headerlink" title="Web"></a>Web</h1><h2 id="colorful-snake"><a href="#colorful-snake" class="headerlink" title="colorful_snake"></a>colorful_snake</h2><p><img data-fancybox="gallery" src="/./2023SWPUNSS/image-20231014142340306-1697265529942-2.png" alt="image-20231014142340306" data-caption="image-20231014142340306" loading="lazy"></p>
-<p><img data-fancybox="gallery" src="/./2023SWPUNSS/image-20231014142407268-1697265572122-5.png" alt="image-20231014142407268" data-caption="image-20231014142407268" loading="lazy"></p>
+<div class="trm-card ">
+    <article id="article-container" class="trm-publication">
+    <h1 id="Web"><a href="#Web" class="headerlink" title="Web"></a>Web</h1><h2 id="colorful-snake"><a href="#colorful-snake" class="headerlink" title="colorful_snake"></a>colorful_snake</h2><p><img src="/./2023SWPUNSS/image-20231014142340306-1697265529942-2.png" alt="image-20231014142340306" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<p><img src="/./2023SWPUNSS/image-20231014142407268-1697265572122-5.png" alt="image-20231014142407268" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
 <p>开启环境，是个小游戏，先按思路，查看一下js源码，找到了this_is_real_flag</p>
-<p><img data-fancybox="gallery" src="/./2023SWPUNSS/image-20231014142608834-1697265586009-8.png" alt="image-20231014142608834" data-caption="image-20231014142608834" loading="lazy"></p>
+<p><img src="/./2023SWPUNSS/image-20231014142608834-1697265586009-8.png" alt="image-20231014142608834" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
 <p>用<a target="_blank" rel="noopener" href="https://www.sojson.com/ascii.html">ascii转换字符</a>，得到了flag</p>
-<h2 id="NSS-HTTP-CHEKER"><a href="#NSS-HTTP-CHEKER" class="headerlink" title="NSS_HTTP_CHEKER"></a>NSS_HTTP_CHEKER</h2><p><img data-fancybox="gallery" src="/./2023SWPUNSS/image-20231014144553894.png" alt="image-20231014144553894" data-caption="image-20231014144553894" loading="lazy"></p>
-<p><img data-fancybox="gallery" src="/./2023SWPUNSS/image-20231014144607026.png" alt="image-20231014144607026" data-caption="image-20231014144607026" loading="lazy"></p>
-<p><img data-fancybox="gallery" src="/./2023SWPUNSS/image-20231014144621112.png" alt="image-20231014144621112" data-caption="image-20231014144621112" loading="lazy"></p>
+<h2 id="NSS-HTTP-CHEKER"><a href="#NSS-HTTP-CHEKER" class="headerlink" title="NSS_HTTP_CHEKER"></a>NSS_HTTP_CHEKER</h2><p><img src="/./2023SWPUNSS/image-20231014144553894.png" alt="image-20231014144553894" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<p><img src="/./2023SWPUNSS/image-20231014144607026.png" alt="image-20231014144607026" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<p><img src="/./2023SWPUNSS/image-20231014144621112.png" alt="image-20231014144621112" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
 <p>开启环境，需要传参，伪造Cookie，UA头和XFF，利用BP抓包修改伪造，得到flag</p>
-<h2 id="一键连接"><a href="#一键连接" class="headerlink" title="一键连接"></a>一键连接</h2><p><img data-fancybox="gallery" src="/./2023SWPUNSS/image-20231014150214287.png" alt="image-20231014150214287" data-caption="image-20231014150214287" loading="lazy"></p>
-<p><img data-fancybox="gallery" src="/./2023SWPUNSS/image-20231014150313994.png" alt="image-20231014150313994" data-caption="image-20231014150313994" loading="lazy"></p>
+<h2 id="一键连接"><a href="#一键连接" class="headerlink" title="一键连接"></a>一键连接</h2><p><img src="/./2023SWPUNSS/image-20231014150214287.png" alt="image-20231014150214287" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<p><img src="/./2023SWPUNSS/image-20231014150313994.png" alt="image-20231014150313994" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
 <p>根据源码指示，一步一步传参绕过</p>
 <p>md5_1 !&#x3D;&#x3D; md5_2 &amp;&amp; md5(md5_1) &#x3D;&#x3D;&#x3D; md5(md5_2)</p>
 <p>sha1_1 !&#x3D; sha1_2 &amp;&amp; sha1(sha1_1) &#x3D;&#x3D;&#x3D; sha1(sha1_2)</p>
@@ -304,132 +397,272 @@
 <p>file_get_contents($new_player) &#x3D;&#x3D;&#x3D; “Welcome to NSSCTF!!!”</p>
 <p>绕过file_get_contents，使用data伪协议进行绕过</p>
 <p>eval($_POST[‘Nss’])则随意使用一个查询命令查询flag</p>
-<h2 id="Pingpingping"><a href="#Pingpingping" class="headerlink" title="Pingpingping"></a>Pingpingping</h2><p><img data-fancybox="gallery" src="/./2023SWPUNSS/image-20231014153313625.png" alt="image-20231014153313625" data-caption="image-20231014153313625" loading="lazy"></p>
-<p><img data-fancybox="gallery" src="/./2023SWPUNSS/image-20231014153412551.png" alt="image-20231014153412551" data-caption="image-20231014153412551" loading="lazy"></p>
+<h2 id="Pingpingping"><a href="#Pingpingping" class="headerlink" title="Pingpingping"></a>Pingpingping</h2><p><img src="/./2023SWPUNSS/image-20231014153313625.png" alt="image-20231014153313625" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<p><img src="/./2023SWPUNSS/image-20231014153412551.png" alt="image-20231014153412551" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
 <p>首先使用Ping_ip.exe回显错误，证明无传参进入，根据php特性，将_更换为[时，成功传参，在使用cat &#x2F;flag 查询flag</p>
-<h2 id="ez-talk"><a href="#ez-talk" class="headerlink" title="ez_talk"></a>ez_talk</h2><p><img data-fancybox="gallery" src="/./2023SWPUNSS/image-20231014171113461.png" alt="image-20231014171113461" data-caption="image-20231014171113461" loading="lazy"></p>
-<p><img data-fancybox="gallery" src="/./2023SWPUNSS/image-20231014171129601.png" alt="image-20231014171129601" data-caption="image-20231014171129601" loading="lazy"></p>
-<p><img data-fancybox="gallery" src="/./2023SWPUNSS/image-20231014171214712.png" alt="image-20231014171214712" data-caption="image-20231014171214712" loading="lazy"></p>
+<h2 id="ez-talk"><a href="#ez-talk" class="headerlink" title="ez_talk"></a>ez_talk</h2><p><img src="/./2023SWPUNSS/image-20231014171113461.png" alt="image-20231014171113461" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<p><img src="/./2023SWPUNSS/image-20231014171129601.png" alt="image-20231014171129601" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<p><img src="/./2023SWPUNSS/image-20231014171214712.png" alt="image-20231014171214712" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
 <p>创建一句话木马</p>
-<p><img data-fancybox="gallery" src="/./2023SWPUNSS/image-20231014171256467.png" alt="image-20231014171256467" data-caption="image-20231014171256467" loading="lazy"></p>
+<p><img src="/./2023SWPUNSS/image-20231014171256467.png" alt="image-20231014171256467" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
 <p>显示需要图片才可以执行</p>
-<p><img data-fancybox="gallery" src="/./2023SWPUNSS/image-20231014171420569.png" alt="image-20231014171420569" data-caption="image-20231014171420569" loading="lazy"></p>
-<p><img data-fancybox="gallery" src="/./2023SWPUNSS/image-20231014171428209.png" alt="image-20231014171428209" data-caption="image-20231014171428209" loading="lazy"></p>
-<p><img data-fancybox="gallery" src="/./2023SWPUNSS/image-20231014171508687.png" alt="image-20231014171508687" data-caption="image-20231014171508687" loading="lazy"></p>
+<p><img src="/./2023SWPUNSS/image-20231014171420569.png" alt="image-20231014171420569" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<p><img src="/./2023SWPUNSS/image-20231014171428209.png" alt="image-20231014171428209" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<p><img src="/./2023SWPUNSS/image-20231014171508687.png" alt="image-20231014171508687" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
 <p>更改后缀为jpg上传并抓包修改文件后缀，回显内容变更，判断文件内容被检测，但抓包可以绕过图片检测</p>
-<p><img data-fancybox="gallery" src="/./2023SWPUNSS/image-20231014172102238.png" alt="image-20231014172102238" data-caption="image-20231014172102238" loading="lazy"></p>
+<p><img src="/./2023SWPUNSS/image-20231014172102238.png" alt="image-20231014172102238" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
 <p>制作图片马</p>
-<p><img data-fancybox="gallery" src="/./2023SWPUNSS/image-20231014172155417.png" alt="image-20231014172155417" data-caption="image-20231014172155417" loading="lazy"></p>
-<p><img data-fancybox="gallery" src="/./2023SWPUNSS/image-20231014172207294.png" alt="image-20231014172207294" data-caption="image-20231014172207294" loading="lazy"></p>
-<p><img data-fancybox="gallery" src="/./2023SWPUNSS/image-20231014172242111.png" alt="image-20231014172242111" data-caption="image-20231014172242111" loading="lazy"></p>
+<p><img src="/./2023SWPUNSS/image-20231014172155417.png" alt="image-20231014172155417" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<p><img src="/./2023SWPUNSS/image-20231014172207294.png" alt="image-20231014172207294" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<p><img src="/./2023SWPUNSS/image-20231014172242111.png" alt="image-20231014172242111" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
 <p>上传修改后缀，回显成功上传</p>
-<p><img data-fancybox="gallery" src="/./2023SWPUNSS/image-20231014173026685.png" alt="image-20231014173026685" data-caption="image-20231014173026685" loading="lazy"></p>
+<p><img src="/./2023SWPUNSS/image-20231014173026685.png" alt="image-20231014173026685" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
 <p>成功执行</p>
 <p>用蚁剑进行连接</p>
-<p><img data-fancybox="gallery" src="/./2023SWPUNSS/image-20231014173124517.png" alt="image-20231014173124517" data-caption="image-20231014173124517" loading="lazy"></p>
-<p><img data-fancybox="gallery" src="/./2023SWPUNSS/image-20231014173149597.png" alt="image-20231014173149597" data-caption="image-20231014173149597" loading="lazy"></p>
+<p><img src="/./2023SWPUNSS/image-20231014173124517.png" alt="image-20231014173124517" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<p><img src="/./2023SWPUNSS/image-20231014173149597.png" alt="image-20231014173149597" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
 <p>连接成功，获得flag</p>
-<h2 id="查查need"><a href="#查查need" class="headerlink" title="查查need"></a>查查need</h2><p><img data-fancybox="gallery" src="/./2023SWPUNSS/image-20231014222755324.png" alt="image-20231014222755324" data-caption="image-20231014222755324" loading="lazy"></p>
-<p><img data-fancybox="gallery" src="/./2023SWPUNSS/image-20231014222810045.png" alt="image-20231014222810045" data-caption="image-20231014222810045" loading="lazy"></p>
-<p><img data-fancybox="gallery" src="/./2023SWPUNSS/image-20231014222911441.png" alt="image-20231014222911441" data-caption="image-20231014222911441" loading="lazy"></p>
-<p><img data-fancybox="gallery" src="/./2023SWPUNSS/image-20231014222949051.png" alt="image-20231014222949051" data-caption="image-20231014222949051" loading="lazy"></p>
-<p><img data-fancybox="gallery" src="/./2023SWPUNSS/image-20231014223018659.png" alt="image-20231014223018659" data-caption="image-20231014223018659" loading="lazy"></p>
-<p><img data-fancybox="gallery" src="/./2023SWPUNSS/image-20231014223311696.png" alt="image-20231014223311696" data-caption="image-20231014223311696" loading="lazy"></p>
+<h2 id="查查need"><a href="#查查need" class="headerlink" title="查查need"></a>查查need</h2><p><img src="/./2023SWPUNSS/image-20231014222755324.png" alt="image-20231014222755324" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<p><img src="/./2023SWPUNSS/image-20231014222810045.png" alt="image-20231014222810045" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<p><img src="/./2023SWPUNSS/image-20231014222911441.png" alt="image-20231014222911441" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<p><img src="/./2023SWPUNSS/image-20231014222949051.png" alt="image-20231014222949051" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<p><img src="/./2023SWPUNSS/image-20231014223018659.png" alt="image-20231014223018659" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<p><img src="/./2023SWPUNSS/image-20231014223311696.png" alt="image-20231014223311696" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
 <p>在学号处尝试使用盲注时，发现sql语言执行，怀疑是sql注入</p>
 <p>利用sqlmap进行自动化注入，得到了flag</p>
 <h1 id="misc"><a href="#misc" class="headerlink" title="misc"></a>misc</h1><h2 id="GIF-Code"><a href="#GIF-Code" class="headerlink" title="GIF Code"></a>GIF Code</h2><p>![QR Code](.&#x2F;2023SWPUNSS&#x2F;QR Code.gif)</p>
 <p>动态二维码</p>
-<p><img data-fancybox="gallery" src="/./2023SWPUNSS/image-20231014183641733.png" alt="image-20231014183641733" data-caption="image-20231014183641733" loading="lazy"></p>
+<p><img src="/./2023SWPUNSS/image-20231014183641733.png" alt="image-20231014183641733" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
 <p>利用ps打开，逐帧重组，扫描二维码得到flag</p>
-<h2 id="咱们玩个游戏吧"><a href="#咱们玩个游戏吧" class="headerlink" title="咱们玩个游戏吧"></a>咱们玩个游戏吧</h2><p><img data-fancybox="gallery" src="/./2023SWPUNSS/image-20231014184343041.png" alt="image-20231014184343041" data-caption="image-20231014184343041" loading="lazy"></p>
+<h2 id="咱们玩个游戏吧"><a href="#咱们玩个游戏吧" class="headerlink" title="咱们玩个游戏吧"></a>咱们玩个游戏吧</h2><p><img src="/./2023SWPUNSS/image-20231014184343041.png" alt="image-20231014184343041" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
 <p>下载得到一堆图片</p>
-<p><img data-fancybox="gallery" src="/./2023SWPUNSS/image-20231014184414416.png" alt="image-20231014184414416" data-caption="image-20231014184414416" loading="lazy"></p>
-<p><img data-fancybox="gallery" src="/./2023SWPUNSS/image-20231014184444923.png" alt="image-20231014184444923" data-caption="image-20231014184444923" loading="lazy"></p>
+<p><img src="/./2023SWPUNSS/image-20231014184414416.png" alt="image-20231014184414416" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<p><img src="/./2023SWPUNSS/image-20231014184444923.png" alt="image-20231014184444923" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
 <p>利用ps进行重组，扫描得到一串url加密编码，解密得到flag</p>
 
-      
-  </article>
+</article>
+    
+    <div class="trm-reward">
+        
+            <span class="trm-reward-btn trm-glow" onclick='var qr = document.getElementById("qr"); qr.style.display = (qr.style.display === "none") ? "block" : "none";'>
+                <i class="iconfont fas fa-hand-holding-usd"></i>
+            </span>
+        
+        <p class="trm-reward-comment">文章对你有用的话，赏杯奶茶，感谢！！</p>
+        <div id="qr" style="display:none;">
+            
+                <div style="display:inline-block">
+                    <a rel="noopener noreferrer" href='weixin.jpg' target='_blank' >
+                       <img src="/weixin.jpg" alt="微信" loading="lazy">
+                    </a>
+                    <p>微信</p>
+                </div>
+            
+                <div style="display:inline-block">
+                    <a rel="noopener noreferrer" href='zhifubao.jpg' target='_blank' >
+                       <img src="/zhifubao.jpg" alt="支付宝" loading="lazy">
+                    </a>
+                    <p>支付宝</p>
+                </div>
+            
+        </div>
+    </div>
 
-  
-      
+    
 
-  
-  
-  <div class="nexmoe-post-meta nexmoe-rainbow">
+</div>
+<div class="trm-post-next-prev row">
+    <div class="col-lg-12">
+        <!-- title -->
+        <h5 class="trm-title-with-divider">
+            其他文章
+            <span data-number="02"></span>
+        </h5>
+    </div>
     
-        <a class="nexmoefont icon-appstore-fill -link" href="/categories/CTF/">CTF</a>
+        <div class="col-lg-6">
+    <div class="trm-blog-card trm-scroll-animation">
+        <a href="/2023/10/15/NewStarCTF2023week2/" class="trm-cover-frame trm-anima-link">
+            
+            
+                <img alt="cover" class="no-fancybox" src="/img/block.jpg">
+            
+        </a>
+        
+        <div class="trm-card-descr">
+            <div class="trm-label trm-category trm-mb-20">
+                <a href=" /categories/CTF/">
+                    CTF
+                </a>
+            </div>
+            <h5>
+                <a href="/2023/10/15/NewStarCTF2023week2/" class="trm-anima-link">
+                    NewStarCTF2023week2
+                </a>
+            </h5>
+            <div class="trm-divider trm-mb-20 trm-mt-20"></div>
+            <ul class="trm-card-data trm-label">
+                <li>23/10/15</li>
+                <li>01:11</li>
+                
+                
+            </ul>
+        </div>
+    </div>
+</div>
     
     
-        <a class="nexmoefont icon-tag-fill -none-link" href="/tags/CTF/" rel="tag">CTF</a>
+        <div class="col-lg-6">
+    <div class="trm-blog-card trm-scroll-animation">
+        <a href="/2023/10/11/PolarD&N/" class="trm-cover-frame trm-anima-link">
+            
+            
+                <img alt="cover" class="no-fancybox" src="/img/block.jpg">
+            
+        </a>
+        
+        <div class="trm-card-descr">
+            <div class="trm-label trm-category trm-mb-20">
+                <a href=" /categories/CTF/">
+                    CTF
+                </a>
+            </div>
+            <h5>
+                <a href="/2023/10/11/PolarD&N/" class="trm-anima-link">
+                    PolarD&amp;N
+                </a>
+            </h5>
+            <div class="trm-divider trm-mb-20 trm-mt-20"></div>
+            <ul class="trm-card-data trm-label">
+                <li>23/10/11</li>
+                <li>16:26</li>
+                
+                
+            </ul>
+        </div>
+    </div>
+</div>
     
 </div>
 
-  
-      <div class="nexmoe-post-footer">
-          请在你的配置文件中设置评论框插槽
-      </div>
-  
-</div>
-            <div class="nexmoe-post-right">
-              <div class="nexmoe-fixed">
-                  <div class="nexmoe-tool"> 
-                    
-                      
-                        
-                          
-                          
-                              <button class="mdui-fab catalog" style="overflow:unset;">
-                                  <i class="nexmoefont icon-i-catalog"></i>
-                                  <div class="nexmoe-toc">
-                                      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Web"><span class="toc-number">1.</span> <span class="toc-text">Web</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#colorful-snake"><span class="toc-number">1.1.</span> <span class="toc-text">colorful_snake</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#NSS-HTTP-CHEKER"><span class="toc-number">1.2.</span> <span class="toc-text">NSS_HTTP_CHEKER</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%80%E9%94%AE%E8%BF%9E%E6%8E%A5"><span class="toc-number">1.3.</span> <span class="toc-text">一键连接</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Pingpingping"><span class="toc-number">1.4.</span> <span class="toc-text">Pingpingping</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#ez-talk"><span class="toc-number">1.5.</span> <span class="toc-text">ez_talk</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9F%A5%E6%9F%A5need"><span class="toc-number">1.6.</span> <span class="toc-text">查查need</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#misc"><span class="toc-number">2.</span> <span class="toc-text">misc</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#GIF-Code"><span class="toc-number">2.1.</span> <span class="toc-text">GIF Code</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%92%B1%E4%BB%AC%E7%8E%A9%E4%B8%AA%E6%B8%B8%E6%88%8F%E5%90%A7"><span class="toc-number">2.2.</span> <span class="toc-text">咱们玩个游戏吧</span></a></li></ol></li></ol>
-                                  </div>
-                              </button>
-                          
-                          
-                      
-                    
-                      <a href="#nexmoe-content" class="toc-link" aria-label="Back To Top" title="top"><button class="mdui-fab mdui-ripple"><i class="nexmoefont icon-caret-top"></i></button></a>
-                  </div>
-              </div>
+    
+
+
+
+                    <div class="trm-divider footer-divider"></div>
+
+                    <!-- footer -->
+                    <footer class="trm-scroll-animation">
+
+    
+
+    
+        <div class="trm-footer-item">
+            <span>© 2023- 2023</span>
+            <span class="footer-separator"data-separator=" · "></span>
+            <span class="trm-accent-color">hao11</span>
+        </div>
+    
+
+      
+
+     
+
+     
+</footer>
+ 
+                    <!-- footer end -->
+
+                </div>
             </div>
         </div>
     </div>
-    <div id="nexmoe-search-space">
-	<div class="search-container">
-		<div class="search-header">
-			<div class="search-input-container">
-				<input
-					class="search-input"
-					type="text"
-					placeholder="Search"
-					oninput="sinput();"
-				/>
-			</div>
-			<a class="search-close" onclick="sclose();">×</a>
-		</div>
-		<div class="search-body"></div>
-	</div>
 </div>
+            <!-- body end -->
+
+            
+
+    <div id="post-toc" class="trm-post-toc">
+      <div class="trm-post-toc-header">
+        目录导航
+      </div>
+      <div class="trm-post-toc-content">
+        <ol class="trm-toc"><li class="trm-toc-item trm-toc-level-1"><a rel="nofollow" class="trm-toc-link" href="#Web"><span class="trm-toc-number">1.</span> <span class="trm-toc-text">Web</span></a><ol class="trm-toc-child"><li class="trm-toc-item trm-toc-level-2"><a rel="nofollow" class="trm-toc-link" href="#colorful-snake"><span class="trm-toc-number">1.1.</span> <span class="trm-toc-text">colorful_snake</span></a></li><li class="trm-toc-item trm-toc-level-2"><a rel="nofollow" class="trm-toc-link" href="#NSS-HTTP-CHEKER"><span class="trm-toc-number">1.2.</span> <span class="trm-toc-text">NSS_HTTP_CHEKER</span></a></li><li class="trm-toc-item trm-toc-level-2"><a rel="nofollow" class="trm-toc-link" href="#一键连接"><span class="trm-toc-number">1.3.</span> <span class="trm-toc-text">一键连接</span></a></li><li class="trm-toc-item trm-toc-level-2"><a rel="nofollow" class="trm-toc-link" href="#Pingpingping"><span class="trm-toc-number">1.4.</span> <span class="trm-toc-text">Pingpingping</span></a></li><li class="trm-toc-item trm-toc-level-2"><a rel="nofollow" class="trm-toc-link" href="#ez-talk"><span class="trm-toc-number">1.5.</span> <span class="trm-toc-text">ez_talk</span></a></li><li class="trm-toc-item trm-toc-level-2"><a rel="nofollow" class="trm-toc-link" href="#查查need"><span class="trm-toc-number">1.6.</span> <span class="trm-toc-text">查查need</span></a></li></ol></li><li class="trm-toc-item trm-toc-level-1"><a rel="nofollow" class="trm-toc-link" href="#misc"><span class="trm-toc-number">2.</span> <span class="trm-toc-text">misc</span></a><ol class="trm-toc-child"><li class="trm-toc-item trm-toc-level-2"><a rel="nofollow" class="trm-toc-link" href="#GIF-Code"><span class="trm-toc-number">2.1.</span> <span class="trm-toc-text">GIF Code</span></a></li><li class="trm-toc-item trm-toc-level-2"><a rel="nofollow" class="trm-toc-link" href="#咱们玩个游戏吧"><span class="trm-toc-number">2.2.</span> <span class="trm-toc-text">咱们玩个游戏吧</span></a></li></ol></li></ol>
+      </div>
+    </div>
+
+            
+<div class="trm-fixed-container">
+    
+        <div class="trm-fixed-btn post-toc-btn" data-title="目录">
+            <i class="iconfont fas fa-th-list"></i>
+        </div>
+    
+    
+        <div class="trm-fixed-btn" data-title="阅读模式" onclick="asyncFun.switchReadMode()">
+            <i class="iconfont fas fa-book-reader"></i>
+        </div>
+    
+    
+    <div id="trm-back-top" class="trm-fixed-btn" data-title="回到顶部">
+        <i class="iconfont fas fa-arrow-up"></i>
+    </div>
+</div>
+        </div>
+      </div>
+      <!-- scroll container end -->
+  </div>
+  <!-- app wrapper end -->
+
+  
+  <!-- Plugin -->
+
+
+
 
     
-<script src="/lib/mdui_043tiny/mdui.js"></script>
-<script src="/lib/jquery.min.js"></script>
-<script src="/lib/justifiedGallery/jquery.justifiedGallery.min.js"></script>
-<script src="/lib/fancybox/fancybox.umd.js"></script>
+    
+<script src="https://npm.elemecdn.com/@fancyapps/ui@4.0/dist/fancybox.umd.js"></script>
+
+    
+
+    
+        <script src="/js/plugins/typing.js?v=2.1.2"></script>
+    
+
+    
+
+    <!-- 数学公式 -->
+    
+
+    <!-- 评论插件 -->
+    
+        
+
+        
+    
 
 
- 
 
-<script async src="/js/app.js?v=1699283245773"></script>
+<!-- CDN -->
 
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2058306854838448" crossorigin="anonymous"></script>
 
-<script>
-	$(".justified-gallery").justifiedGallery({
-		rowHeight: 160,
-		margins: 10,
-	});
-</script>
+    
+
+    
+
+    
+
+
+
+
+    <!-- Service Worker -->
+    
+    <!-- baidu push -->
+    
+
+
+<script id="async-script" src="/js/main.js?v=2.1.2"></script>
 
 </body>
 
