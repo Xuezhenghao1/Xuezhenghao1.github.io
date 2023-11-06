@@ -1,672 +1,439 @@
 <!DOCTYPE html>
+
 <html lang="zh-Hans">
 
 <head>
-  <meta http-equiv="content-type" content="text/html; charset=utf-8">
-<meta name="x5-fullscreen" content="true">
-<meta name="full-screen" content="yes">
-<meta name="theme-color" content="#317EFB" />
-<meta content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=0" name="viewport">
-<meta name="description" content="WebBegin of PHPmd5弱比较，get传参给key1和key2，使得key1和key2的md5值出现0e开头key3与key4相同，都使用数组进行绕过key5利用换行符进行绕过传入换行符给flag5即可得出flagflag{d5c90421-81d4-40e3-8cfc-5bab099ee54c} 泄漏的秘密抓包和代码都没看出什么东西，只能用工具扫，发现429报错，一个一个常见的挨个试">
+    
+    <title>NewStarCTF2023week1 - hao11</title>
+    <meta charset="UTF-8">
+    <meta name="keywords" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5">
+    
+    <link rel="shortcut icon" href="/log.svg" type="image/x-icon" />
+    <meta name="description" content="WebBegin of PHPmd5弱比较，get传参给key1和key2，使得key1和key2的md5值出现0e开头key3与key4相同，都使用数组进行绕过key5利用换行符进行绕过传入换行符给flag5即可得出flagflag{d5c90421-81d4-40e3-8cfc-5bab099ee54c} 泄漏的秘密抓包和代码都没看出什么东西，只能用工具扫，发现429报错，一个一个常见的挨个试">
 <meta property="og:type" content="article">
 <meta property="og:title" content="NewStarCTF2023week1">
 <meta property="og:url" content="http://example.com/2023/10/09/NewStarCTF2023week1/index.html">
 <meta property="og:site_name" content="hao11">
 <meta property="og:description" content="WebBegin of PHPmd5弱比较，get传参给key1和key2，使得key1和key2的md5值出现0e开头key3与key4相同，都使用数组进行绕过key5利用换行符进行绕过传入换行符给flag5即可得出flagflag{d5c90421-81d4-40e3-8cfc-5bab099ee54c} 泄漏的秘密抓包和代码都没看出什么东西，只能用工具扫，发现429报错，一个一个常见的挨个试">
 <meta property="og:locale">
-<meta property="og:image" content="http://example.com/img/404.jpg">
-<meta property="og:image" content="http://example.com/img/404.jpg">
-<meta property="og:image" content="http://example.com/img/404.jpg">
-<meta property="og:image" content="http://example.com/img/404.jpg">
-<meta property="og:image" content="http://example.com/img/404.jpg">
-<meta property="og:image" content="http://example.com/img/404.jpg">
-<meta property="og:image" content="http://example.com/img/404.jpg">
-<meta property="og:image" content="http://example.com/img/404.jpg">
-<meta property="og:image" content="http://example.com/img/404.jpg">
-<meta property="og:image" content="http://example.com/img/404.jpg">
-<meta property="og:image" content="http://example.com/img/404.jpg">
-<meta property="og:image" content="http://example.com/img/404.jpg">
-<meta property="og:image" content="http://example.com/img/404.jpg">
-<meta property="og:image" content="http://example.com/img/404.jpg">
-<meta property="og:image" content="http://example.com/img/404.jpg">
-<meta property="og:image" content="http://example.com/img/404.jpg">
-<meta property="og:image" content="http://example.com/img/404.jpg">
-<meta property="og:image" content="http://example.com/img/404.jpg">
-<meta property="og:image" content="http://example.com/img/404.jpg">
-<meta property="og:image" content="http://example.com/img/404.jpg">
-<meta property="og:image" content="http://example.com/img/404.jpg">
-<meta property="og:image" content="http://example.com/img/404.jpg">
-<meta property="og:image" content="http://example.com/img/404.jpg">
-<meta property="og:image" content="http://example.com/img/404.jpg">
-<meta property="og:image" content="http://example.com/img/404.jpg">
-<meta property="og:image" content="http://example.com/img/404.jpg">
-<meta property="og:image" content="http://example.com/img/404.jpg">
-<meta property="og:image" content="http://example.com/img/404.jpg">
-<meta property="og:image" content="http://example.com/img/404.jpg">
-<meta property="og:image" content="http://example.com/img/404.jpg">
-<meta property="og:image" content="http://example.com/img/404.jpg">
-<meta property="og:image" content="http://example.com/img/404.jpg">
-<meta property="og:image" content="http://example.com/img/404.jpg">
-<meta property="og:image" content="http://example.com/img/404.jpg">
-<meta property="og:image" content="http://example.com/img/404.jpg">
-<meta property="og:image" content="http://example.com/img/404.jpg">
-<meta property="og:image" content="http://example.com/img/404.jpg">
-<meta property="og:image" content="http://example.com/img/404.jpg">
-<meta property="og:image" content="http://example.com/img/404.jpg">
-<meta property="og:image" content="http://example.com/img/404.jpg">
-<meta property="og:image" content="http://example.com/img/404.jpg">
-<meta property="og:image" content="http://example.com/img/404.jpg">
-<meta property="og:image" content="http://example.com/img/404.jpg">
-<meta property="og:image" content="http://example.com/img/404.jpg">
-<meta property="og:image" content="http://example.com/img/404.jpg">
-<meta property="og:image" content="http://example.com/img/404.jpg">
-<meta property="og:image" content="http://example.com/img/404.jpg">
-<meta property="og:image" content="http://example.com/img/404.jpg">
-<meta property="og:image" content="http://example.com/img/404.jpg">
-<meta property="og:image" content="http://example.com/img/404.jpg">
-<meta property="og:image" content="http://example.com/img/404.jpg">
-<meta property="og:image" content="http://example.com/img/404.jpg">
-<meta property="og:image" content="http://example.com/img/404.jpg">
-<meta property="og:image" content="http://example.com/img/404.jpg">
-<meta property="og:image" content="http://example.com/img/404.jpg">
-<meta property="og:image" content="http://example.com/img/404.jpg">
-<meta property="og:image" content="http://example.com/img/404.jpg">
-<meta property="og:image" content="http://example.com/img/404.jpg">
-<meta property="og:image" content="http://example.com/img/404.jpg">
-<meta property="og:image" content="http://example.com/img/404.jpg">
-<meta property="og:image" content="http://example.com/img/404.jpg">
-<meta property="og:image" content="http://example.com/img/404.jpg">
-<meta property="og:image" content="http://example.com/img/404.jpg">
-<meta property="og:image" content="http://example.com/img/404.jpg">
-<meta property="og:image" content="http://example.com/img/404.jpg">
-<meta property="og:image" content="http://example.com/img/404.jpg">
-<meta property="og:image" content="http://example.com/img/404.jpg">
-<meta property="og:image" content="http://example.com/img/404.jpg">
-<meta property="og:image" content="http://example.com/img/404.jpg">
-<meta property="og:image" content="http://example.com/img/404.jpg">
-<meta property="og:image" content="http://example.com/img/404.jpg">
-<meta property="og:image" content="http://example.com/img/404.jpg">
-<meta property="og:image" content="http://example.com/img/404.jpg">
-<meta property="og:image" content="http://example.com/img/404.jpg">
-<meta property="og:image" content="http://example.com/img/404.jpg">
-<meta property="og:image" content="http://example.com/img/404.jpg">
-<meta property="og:image" content="http://example.com/img/404.jpg">
-<meta property="og:image" content="http://example.com/img/404.jpg">
-<meta property="og:image" content="http://example.com/img/404.jpg">
-<meta property="og:image" content="http://example.com/img/404.jpg">
+<meta property="og:image" content="http://example.com/2023/10/09/NewStarCTF2023week1/Web/BeginofPHP/1.png">
+<meta property="og:image" content="http://example.com/2023/10/09/NewStarCTF2023week1/Web/BeginofPHP/2.png">
+<meta property="og:image" content="http://example.com/2023/10/09/NewStarCTF2023week1/Web/BeginofPHP/3.png">
+<meta property="og:image" content="http://example.com/2023/10/09/NewStarCTF2023week1/Web/BeginofPHP/4.png">
+<meta property="og:image" content="http://example.com/2023/10/09/NewStarCTF2023week1/Web/BeginofPHP/5.png">
+<meta property="og:image" content="http://example.com/2023/10/09/NewStarCTF2023week1/Web/BeginofPHP/6.png">
+<meta property="og:image" content="http://example.com/2023/10/09/NewStarCTF2023week1/Web/BeginofPHP/7.png">
+<meta property="og:image" content="http://example.com/2023/10/09/NewStarCTF2023week1/Web/%E6%B3%84%E6%BC%8F%E7%9A%84%E7%A7%98%E5%AF%86/1.png">
+<meta property="og:image" content="http://example.com/2023/10/09/NewStarCTF2023week1/Web/%E6%B3%84%E6%BC%8F%E7%9A%84%E7%A7%98%E5%AF%86/2.png">
+<meta property="og:image" content="http://example.com/2023/10/09/NewStarCTF2023week1/Web/%E6%B3%84%E6%BC%8F%E7%9A%84%E7%A7%98%E5%AF%86/3.png">
+<meta property="og:image" content="http://example.com/2023/10/09/NewStarCTF2023week1/Web/%E6%B3%84%E6%BC%8F%E7%9A%84%E7%A7%98%E5%AF%86/4.png">
+<meta property="og:image" content="http://example.com/2023/10/09/NewStarCTF2023week1/Web/BeginofUpload/1.png">
+<meta property="og:image" content="http://example.com/2023/10/09/NewStarCTF2023week1/Web/BeginofUpload/2.png">
+<meta property="og:image" content="http://example.com/2023/10/09/NewStarCTF2023week1/Web/BeginofUpload/3.png">
+<meta property="og:image" content="http://example.com/2023/10/09/NewStarCTF2023week1/Web/BeginofUpload/4.png">
+<meta property="og:image" content="http://example.com/2023/10/09/NewStarCTF2023week1/Web/BeginofUpload/5.png">
+<meta property="og:image" content="http://example.com/2023/10/09/NewStarCTF2023week1/Web/BeginofUpload/6.png">
+<meta property="og:image" content="http://example.com/2023/10/09/NewStarCTF2023week1/Web/BeginofUpload/7.png">
+<meta property="og:image" content="http://example.com/2023/10/09/NewStarCTF2023week1/Web/BeginofHTTP/1.png">
+<meta property="og:image" content="http://example.com/2023/10/09/NewStarCTF2023week1/Web/BeginofHTTP/2.png">
+<meta property="og:image" content="http://example.com/2023/10/09/NewStarCTF2023week1/Web/BeginofHTTP/3.png">
+<meta property="og:image" content="http://example.com/2023/10/09/NewStarCTF2023week1/Web/BeginofHTTP/4.png">
+<meta property="og:image" content="http://example.com/2023/10/09/NewStarCTF2023week1/Web/BeginofHTTP/5.png">
+<meta property="og:image" content="http://example.com/2023/10/09/NewStarCTF2023week1/Web/BeginofHTTP/6.png">
+<meta property="og:image" content="http://example.com/2023/10/09/NewStarCTF2023week1/Web/BeginofHTTP/7.png">
+<meta property="og:image" content="http://example.com/2023/10/09/NewStarCTF2023week1/Web/BeginofHTTP/8.png">
+<meta property="og:image" content="http://example.com/2023/10/09/NewStarCTF2023week1/Web/BeginofHTTP/9.png">
+<meta property="og:image" content="http://example.com/2023/10/09/NewStarCTF2023week1/Web/BeginofHTTP/10.png">
+<meta property="og:image" content="http://example.com/2023/10/09/NewStarCTF2023week1/Web/BeginofHTTP/11.png">
+<meta property="og:image" content="http://example.com/2023/10/09/NewStarCTF2023week1/Web/BeginofHTTP/12.png">
+<meta property="og:image" content="http://example.com/2023/10/09/NewStarCTF2023week1/Web/ErrorFlask/1.png">
+<meta property="og:image" content="http://example.com/2023/10/09/NewStarCTF2023week1/Web/ErrorFlask/2.png">
+<meta property="og:image" content="http://example.com/2023/10/09/NewStarCTF2023week1/Web/ErrorFlask/3.png">
+<meta property="og:image" content="http://example.com/2023/10/09/NewStarCTF2023week1/Web/R!C!E!/1.png">
+<meta property="og:image" content="http://example.com/2023/10/09/NewStarCTF2023week1/Web/R!C!E!/2.png">
+<meta property="og:image" content="http://example.com/2023/10/09/NewStarCTF2023week1/Web/R!C!E!/3.png">
+<meta property="og:image" content="http://example.com/2023/10/09/NewStarCTF2023week1/Web/R!C!E!/4.png">
+<meta property="og:image" content="http://example.com/2023/10/09/NewStarCTF2023week1/Web/EasyLogin/1.png">
+<meta property="og:image" content="http://example.com/2023/10/09/NewStarCTF2023week1/Web/EasyLogin/2.png">
+<meta property="og:image" content="http://example.com/2023/10/09/NewStarCTF2023week1/Web/EasyLogin/3.png">
+<meta property="og:image" content="http://example.com/2023/10/09/NewStarCTF2023week1/Web/EasyLogin/4.png">
+<meta property="og:image" content="http://example.com/2023/10/09/NewStarCTF2023week1/Web/EasyLogin/5.png">
+<meta property="og:image" content="http://example.com/2023/10/09/NewStarCTF2023week1/Web/EasyLogin/6.png">
+<meta property="og:image" content="http://example.com/2023/10/09/NewStarCTF2023week1/Web/EasyLogin/7.png">
+<meta property="og:image" content="http://example.com/2023/10/09/NewStarCTF2023week1/CRYPTO/Brainfuck/1.png">
+<meta property="og:image" content="http://example.com/2023/10/09/NewStarCTF2023week1/CRYPTO/Brainfuck/2.png">
+<meta property="og:image" content="http://example.com/2023/10/09/NewStarCTF2023week1/CRYPTO/Caesar">
+<meta property="og:image" content="http://example.com/2023/10/09/NewStarCTF2023week1/CRYPTO/Caesar">
+<meta property="og:image" content="http://example.com/2023/10/09/NewStarCTF2023week1/CRYPTO/Fence/1.png">
+<meta property="og:image" content="http://example.com/2023/10/09/NewStarCTF2023week1/CRYPTO/Fence/2.png">
+<meta property="og:image" content="http://example.com/2023/10/09/NewStarCTF2023week1/CRYPTO/Vigen%C3%A8re/1.png">
+<meta property="og:image" content="http://example.com/2023/10/09/NewStarCTF2023week1/CRYPTO/Vigen%C3%A8re/2.png">
+<meta property="og:image" content="http://example.com/2023/10/09/NewStarCTF2023week1/CRYPTO/Babyencoding/1.png">
+<meta property="og:image" content="http://example.com/2023/10/09/NewStarCTF2023week1/CRYPTO/Babyencoding/2.png">
+<meta property="og:image" content="http://example.com/2023/10/09/NewStarCTF2023week1/CRYPTO/Babyencoding/3.png">
+<meta property="og:image" content="http://example.com/2023/10/09/NewStarCTF2023week1/CRYPTO/Babyencoding/4.png">
+<meta property="og:image" content="http://example.com/2023/10/09/NewStarCTF2023week1/Misc/CyberChef">
+<meta property="og:image" content="http://example.com/2023/10/09/NewStarCTF2023week1/Misc/CyberChef">
+<meta property="og:image" content="http://example.com/2023/10/09/NewStarCTF2023week1/Misc/%E6%9C%BA%E5%AF%86%E5%9B%BE%E7%89%87/1.png">
+<meta property="og:image" content="http://example.com/2023/10/09/NewStarCTF2023week1/Misc/%E6%9C%BA%E5%AF%86%E5%9B%BE%E7%89%87/2.png">
+<meta property="og:image" content="http://example.com/2023/10/09/NewStarCTF2023week1/Misc/%E6%9C%BA%E5%AF%86%E5%9B%BE%E7%89%87/3.png">
+<meta property="og:image" content="http://example.com/2023/10/09/NewStarCTF2023week1/Misc/%E7%A9%BA%E7%99%BD%E6%A0%BC/1.png">
+<meta property="og:image" content="http://example.com/2023/10/09/NewStarCTF2023week1/Misc/%E7%A9%BA%E7%99%BD%E6%A0%BC/2.png">
+<meta property="og:image" content="http://example.com/2023/10/09/NewStarCTF2023week1/Misc/%E6%B5%81%E9%87%8F%EF%BC%81%E9%B2%A8%E9%B1%BC%EF%BC%81/1.png">
+<meta property="og:image" content="http://example.com/2023/10/09/NewStarCTF2023week1/Misc/%E6%B5%81%E9%87%8F%EF%BC%81%E9%B2%A8%E9%B1%BC%EF%BC%81/2.png">
+<meta property="og:image" content="http://example.com/2023/10/09/NewStarCTF2023week1/Misc/%E6%B5%81%E9%87%8F%EF%BC%81%E9%B2%A8%E9%B1%BC%EF%BC%81/3.png">
+<meta property="og:image" content="http://example.com/2023/10/09/NewStarCTF2023week1/Misc/%E6%B5%81%E9%87%8F%EF%BC%81%E9%B2%A8%E9%B1%BC%EF%BC%81/4.png">
+<meta property="og:image" content="http://example.com/2023/10/09/NewStarCTF2023week1/Misc/%E6%B5%81%E9%87%8F%EF%BC%81%E9%B2%A8%E9%B1%BC%EF%BC%81/5.png">
+<meta property="og:image" content="http://example.com/2023/10/09/NewStarCTF2023week1/Misc/%E5%8E%8B%E7%BC%A9%E5%8C%85%E4%BB%AC/1.png">
+<meta property="og:image" content="http://example.com/2023/10/09/NewStarCTF2023week1/Misc/%E5%8E%8B%E7%BC%A9%E5%8C%85%E4%BB%AC/2.png">
+<meta property="og:image" content="http://example.com/2023/10/09/NewStarCTF2023week1/Misc/%E5%8E%8B%E7%BC%A9%E5%8C%85%E4%BB%AC/3.png">
+<meta property="og:image" content="http://example.com/2023/10/09/NewStarCTF2023week1/Misc/%E5%8E%8B%E7%BC%A9%E5%8C%85%E4%BB%AC/4.png">
+<meta property="og:image" content="http://example.com/2023/10/09/NewStarCTF2023week1/Misc/%E5%8E%8B%E7%BC%A9%E5%8C%85%E4%BB%AC/5.png">
+<meta property="og:image" content="http://example.com/2023/10/09/NewStarCTF2023week1/Misc/%E5%8E%8B%E7%BC%A9%E5%8C%85%E4%BB%AC/6.png">
+<meta property="og:image" content="http://example.com/2023/10/09/NewStarCTF2023week1/Misc/%E5%8E%8B%E7%BC%A9%E5%8C%85%E4%BB%AC/7.png">
+<meta property="og:image" content="http://example.com/2023/10/09/NewStarCTF2023week1/Misc/%E5%8E%8B%E7%BC%A9%E5%8C%85%E4%BB%AC/8.png">
+<meta property="og:image" content="http://example.com/2023/10/09/NewStarCTF2023week1/Misc/%E5%8E%8B%E7%BC%A9%E5%8C%85%E4%BB%AC/9.png">
+<meta property="og:image" content="http://example.com/2023/10/09/NewStarCTF2023week1/Misc/%E5%8E%8B%E7%BC%A9%E5%8C%85%E4%BB%AC/10.png">
+<meta property="og:image" content="http://example.com/2023/10/09/NewStarCTF2023week1/Misc/%E9%9A%90%E7%A7%98%E7%9A%84%E7%9C%BC%E7%9D%9B/1.png">
+<meta property="og:image" content="http://example.com/2023/10/09/NewStarCTF2023week1/Misc/%E9%9A%90%E7%A7%98%E7%9A%84%E7%9C%BC%E7%9D%9B/2.png">
 <meta property="article:published_time" content="2023-10-09T02:52:02.499Z">
-<meta property="article:modified_time" content="2023-11-05T17:11:34.773Z">
+<meta property="article:modified_time" content="2023-11-06T11:28:55.018Z">
 <meta property="article:author" content="hao11">
 <meta property="article:tag" content="CTF">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://example.com/img/404.jpg">
+<meta name="twitter:image" content="http://example.com/2023/10/09/NewStarCTF2023week1/Web/BeginofPHP/1.png">
+    
+<link rel="stylesheet" href="/lib/fancybox/fancybox.css">
+<link rel="stylesheet" href="/lib/justifiedGallery/justifiedGallery.min.css">
+<link rel="stylesheet" href="/lib/mdui_043tiny/mdui.css">
 
 
-<title >NewStarCTF2023week1</title>
-
-<!-- Favicon -->
-
-    <link href='/log1.svg?v=2.1.2' rel='icon' type='image/png' sizes='16x16' ></link>
-
-
-    <link href='/log.svg?v=2.1.2' rel='icon' type='image/png' sizes='32x32' ></link>
-
-
-    <link href='/log.svg?v=2.1.2' rel='apple-touch-icon' sizes='180x180' ></link>
-
-
-    <link href='/site.webmanifest' rel='manifest' ></link>
-
-
-<!-- Plugin -->
-
-
-
+    <link rel="stylesheet" href="/lib/iconfont/iconfont.css?v=1699283245779">
+    
+    <link rel="stylesheet" href="/css/style.css?v=1699283245779">
 
     
-<link rel="stylesheet" href="/css/plugins/bootstrap.row.css">
-
+        
+            <link rel="stylesheet" href="/custom.css?v=1699283245779">
+        
     
-<link rel="stylesheet" href="https://npm.elemecdn.com/@fancyapps/ui@4.0/dist/fancybox.css">
-
-    
-    
-
-
-
-
-<!-- Icon -->
-
-    
-<link rel="stylesheet" href="/css/plugins/font-awesome.min.css">
-
-
-
-
-<!-- Variable -->
-<script>window.ASYNC_CONFIG = {"hostname":"example.com","author":"hao11","root":"/","typed_text":["to Hao11's blog"],"theme_version":"2.1.2","theme":{"switch":true,"default":"auto"},"favicon":{"logo":"log.svg","icon16":"log1.svg","icon32":"log.svg","appleTouchIcon":"log.svg","webmanifest":"/site.webmanifest","visibilitychange":true,"hidden":"log2.svg","showText":"(/≧▽≦/)咦！又好了！","hideText":"(●—●)喔哟，崩溃啦！"},"i18n":{"placeholder":"搜索文章...","empty":"找不到您查询的内容: ${query}","hits":"找到 ${hits} 条结果","hits_time":"找到 ${hits} 条结果（用时 ${time} 毫秒）","author":"本文作者：","copyright_link":"本文链接：","copyright_license_title":"版权声明：","copyright_license_content":"本博客所有文章除特别声明外，均默认采用 undefined 许可协议。","copy_success":"复制成功","copy_failure":"复制失败","open_read_mode":"进入阅读模式","exit_read_mode":"退出阅读模式","notice_outdate_message":"距离上次更新已经 undefined 天了, 文章内容可能已经过时。","just":"刚刚","min":"分钟前","hour":"小时前","day":"天前","month":"个月前"},"swup":false,"plugin":{"flickr_justified_gallery":"https://npm.elemecdn.com/flickr-justified-gallery@latest/dist/fjGallery.min.js"},"icons":{"sun":"far fa-sun","moon":"far fa-moon","play":"fas fa-play","email":"far fa-envelope","next":"fas fa-arrow-right","calendar":"far fa-calendar-alt","clock":"far fa-clock","user":"far fa-user","back_top":"fas fa-arrow-up","close":"fas fa-times","search":"fas fa-search","reward":"fas fa-hand-holding-usd","user_tag":"fas fa-user-alt","toc_tag":"fas fa-th-list","read":"fas fa-book-reader","arrows":"fas fa-arrows-alt-h","double_arrows":"fas fa-angle-double-down","copy":"fas fa-copy"},"icontype":"font","highlight":{"plugin":"highlighjs","theme":true,"copy":true,"lang":true,"title":"default","height_limit":false},"toc":{"post_title":false}};</script>
-<script id="async-page-config">window.PAGE_CONFIG = {"isPost":true,"isHome":false,"postUpdate":"2023-11-06 01:11:34"};</script>
-
-<!-- Theme mode css -->
-<link data-swup-theme rel="stylesheet" href="/css/index.css?v=2.1.2" id="trm-switch-style">
-<script>
-    let defaultMode = ASYNC_CONFIG.theme.default !=='auto' ?  ASYNC_CONFIG.theme.default : (window.matchMedia("(prefers-color-scheme: light)").matches ? 'style-light' : 'style-dark')
-    let catchMode = localStorage.getItem('theme-mode') || defaultMode;
-    let type = catchMode === 'style-dark' ? 'add' : 'remove';
-    document.documentElement.classList[type]('dark')
-</script>
-
-<!-- CDN -->
-
-
-    
-    
-
-
-
-<!-- Site Analytics -->
- 
 <meta name="generator" content="Hexo 6.3.0"></head>
 
-<body>
-
-  <!-- app wrapper -->
-  <div class="trm-app-frame">
-
-    <!-- page preloader -->
-    <div class="trm-preloader">
-    <div class="trm-holder">
-        <div class="preloader">
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-        </div>
-    </div>
-</div>
-    <!-- page preloader end -->
-
-    <!-- change mode preloader -->
-    <div class="trm-mode-swich-animation-frame">
-    <div class="trm-mode-swich-animation">
-        <i class="i-sun"><i class="iconfont far fa-sun"></i></i>
-        <div class="trm-horizon"></div>
-        <i class="i-moon"><i class="iconfont far fa-moon"></i></i>
-    </div>
-</div>
-    <!-- change mode preloader end -->
-
-      <!-- scroll container -->
-      <div id="trm-dynamic-content" class="trm-swup-animation">
-        <div id="trm-scroll-container" class="trm-scroll-container" style="opacity: 0">
-            <!-- top bar -->
-            <header class="trm-top-bar">
-	<div class="container">
-		<div class="trm-left-side">
-			<!-- logo -->
-<a href="/" class="trm-logo-frame trm-anima-link">
-    
-        <img alt="logo" src="/log.svg">
-    
-    
-        <div class="trm-logo-text">
-            hao<span>11</span>
-        </div>
-    
-</a>
-<!-- logo end -->
-		</div>
-		<div class="trm-right-side">
-			<!-- menu -->
-<div class="trm-menu">
-    <nav>
-        <ul>
-            
-            <li class="menu-item-has-children ">
-                <a  href="/" target="">
-                    首页
-                </a>
-                
-            </li>
-            
-            <li class="menu-item-has-children ">
-                <a data-no-swup href="/archives/" target="">
-                    归档
-                </a>
-                
-            </li>
-            
-            <li class="menu-item-has-children ">
-                <a data-no-swup href="/categories/" target="">
-                    分类
-                </a>
-                
-            </li>
-            
-        </ul>
-    </nav>
-</div>
-<!-- menu end -->
-			
-    <!-- mode switcher place -->
-    <div class="trm-mode-switcher-place">
-        <div class="trm-mode-switcher">
-            <i class="iconfont far fa-sun"></i>
-            <input class="tgl tgl-light" id="trm-swich" type="checkbox">
-            <label class="trm-swich" for="trm-swich"></label>
-            <i class="iconfont far fa-moon"></i>
-        </div>
-    </div>
-    <!-- mode switcher place end -->
-
-			
-		</div>
-		<div class="trm-menu-btn">
-			<span></span>
-		</div>
-	</div>
-</header>
-            <!-- top bar end -->
-
-            <!-- body -->
-            
-<div class="trm-content-start">
-    <!-- banner -->
-    <div class="trm-banner">
-    
-    <!-- banner cover -->
-    <img style="object-position:top;object-fit:cover;" alt="banner" class="trm-banner-cover" src="/img/banner.png">
-    <!-- banner cover end -->
-    
-
-    <!-- banner content -->
-    <div class="trm-banner-content trm-overlay">
-        <div class="container">
-            <div class="row">
-                
-                <div class="col-lg-4"></div>
-                
-                <div class="col-lg-8">
-
-                    <!-- banner title -->
-                    <div class="trm-banner-text ">
-                        <div class="trm-label trm-mb-20">
-                            NEWS LETTER
-                        </div>
-                        <h1 class="trm-mb-30 trm-hsmb-font">
-                            NewStarCTF2023week1
-                        </h1>
-
-                        
-                            <ul class="trm-breadcrumbs trm-label">
-                                <li>
-                                    <a href="/" class="trm-anima-link">Home</a>
-                                </li>
-                                <li>
-                                    <span>
-                                        2023
-                                    </span>
-                                </li>
-                            </ul>
-                        
-                    </div>
-                    <!-- banner title end -->
-
-                    <!-- scroll hint -->
-                    <span id="scroll-triger" class="trm-scroll-hint-frame">
-                        <div class="trm-scroll-hint"></div>
-                        <span class="trm-label">Scroll down</span>
-                    </span>
-                    <!-- scroll hint end -->
-
-                </div>
+<body class="mdui-drawer-body-left">
+    <div id="nexmoe-background">
+        <div class="nexmoe-bg" style="background-image: url(beijing.jpg)"></div>
+        <div class="mdui-appbar mdui-shadow-0">
+            <div class="mdui-toolbar">
+                <a mdui-drawer="{target: '#drawer', swipe: true}" title="menu" class="mdui-btn mdui-btn-icon mdui-ripple"><i class="mdui-icon nexmoefont icon-menu"></i></a>
+                <div class="mdui-toolbar-spacer"></div>
+                <!--<a href="javascript:;" class="mdui-btn mdui-btn-icon"><i class="mdui-icon material-icons">search</i></a>-->
+                <a href="/" title="hao11" class="mdui-btn mdui-btn-icon"><img src="touxiang.jpeg" alt="hao11"></a>
             </div>
         </div>
     </div>
-    <!-- banner content end -->
-</div>
-    <!-- banner end -->
-    <div class="container">
-        <div class="row">
-            
-                <div class="trm-page-sidebar col-lg-4 hidden-sm">
-                    <!-- main card -->
-                    <div class="trm-main-card-frame trm-sidebar">
-    <div class="trm-main-card"> 
-        <!-- card header -->
-<div class="trm-mc-header">
-    <div class="trm-avatar-frame trm-mb-20">
-        <img alt="Avatar" class="trm-avatar" src="/touxiang.jpeg">
-    </div>
-    <h5 class="trm-name trm-mb-15">
-        hao11
-    </h5>
-    
-        <div class="trm-label">
-            Welcome
-            <span class="trm-typed-text">
-                <!-- Words for theme.user.typedText -->
-            </span>
-        </div>
-    
-</div>
-<!-- card header end -->
-        <!-- sidebar social -->
-
-<div class="trm-divider trm-mb-40 trm-mt-40"></div>
-<div class="trm-social">
-    
-        <a href="https://github.com" title="Github" rel="nofollow" target="_blank">
-            <i class="iconfont fab fa-github"></i>
+    <div id="nexmoe-header">
+        <div class="nexmoe-drawer mdui-drawer" id="drawer">
+    <div class="nexmoe-avatar mdui-ripple">
+        <a href="/" title="hao11">
+            <img src="touxiang.jpeg" alt="hao11" alt="hao11">
         </a>
+    </div>
+    <div class="nexmoe-count">
+        <div><span>Articles</span>7</div>
+        <div><span>Tags</span>2</div>
+        <div><span>Categories</span>3</div>
+    </div>
+    <div class="nexmoe-list mdui-list" mdui-collapse="{accordion: true}">
+        
+        <a class="nexmoe-list-item mdui-list-item mdui-ripple false" href="/" title="回到首页">
+            <i class="mdui-list-item-icon nexmoefont icon-home"></i>
+            <div class="mdui-list-item-content">
+                回到首页
+            </div>
+        </a>
+        
+        <a class="nexmoe-list-item mdui-list-item mdui-ripple false" href="/archive.html" title="文章归档">
+            <i class="mdui-list-item-icon nexmoefont icon-container"></i>
+            <div class="mdui-list-item-content">
+                文章归档
+            </div>
+        </a>
+        
+        <a class="nexmoe-list-item mdui-list-item mdui-ripple false" href="/PY.html" title="我的朋友">
+            <i class="mdui-list-item-icon nexmoefont icon-unorderedlist"></i>
+            <div class="mdui-list-item-content">
+                我的朋友
+            </div>
+        </a>
+        
+    </div>
+    <aside id="nexmoe-sidebar">
     
+        
+        <div class="nexmoe-widget-wrap">
+    <div class="nexmoe-widget nexmoe-search">
+         
+            <form id="search_form" action_e="https://cn.bing.com/search?q=site:nexmoe.com" onsubmit="return search();">
+                <label><input id="search_value" name="q" type="search" placeholder="Search"></label>
+            </form>
+         
+    </div>
 </div>
 
-<!-- sidebar social end -->
-        <!-- info -->
-<div class="trm-divider trm-mb-40 trm-mt-40"></div>
-<ul class="trm-table trm-mb-20">
+
+
+
     
-        <li>
-            <div class="trm-label">
-                Residence:
-            </div>
-            <div class="trm-label trm-label-light">
-                Mars
-            </div>
+        
+        
+  <div class="nexmoe-widget-wrap">
+    <h3 class="nexmoe-widget-title">Categories</h3>
+    <div class="nexmoe-widget">
+
+      <ul class="category-list">
+
+        
+
+
+        
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/CTF/">CTF</a>
+          <span class="category-list-count">5</span>
         </li>
-    
-</ul>
-<!-- info end -->
 
         
-    <div class="trm-divider trm-mb-40 trm-mt-40"></div>
-    <!-- action button -->
-    <div class="text-center">
-        <a href="mailto:xuezhenghao2002@163.com" class="trm-btn">
-            联系我
-            <i class="iconfont far fa-envelope"></i>
-        </a>
-    </div>
-    <!-- action button end -->
 
-    </div>
-</div>
-                    <!-- main card end -->
-                </div>
-            
-            <div class="trm-page-content col-lg-8">
-                <div id="trm-content" class="trm-content">
-                    <div class="trm-post-info row hidden-sm">
-    <div class="col-sm-4">
-        <div class="trm-card trm-label trm-label-light text-center">
-            <i class="iconfont far fa-calendar-alt trm-icon"></i><br>
-            10/09
-        </div>
-    </div>
-    <div class="col-sm-4">
-        <div class="trm-card trm-label trm-label-light text-center">
-            <i class="iconfont far fa-clock trm-icon"></i><br>
-            10:52
-        </div>
-    </div>
-    <div class="col-sm-4">
-        <div id="post-author" class="trm-card trm-label trm-label-light text-center">
-            <i class="iconfont far fa-user trm-icon"></i><br>
-            hao11
-        </div>
-    </div>
-</div>
-<div class="trm-card ">
-    <article id="article-container" class="trm-publication">
-    <h1 id="Web"><a href="#Web" class="headerlink" title="Web"></a>Web</h1><h2 id="Begin-of-PHP"><a href="#Begin-of-PHP" class="headerlink" title="Begin of PHP"></a>Begin of PHP</h2><p><img src="/2023/10/09/NewStarCTF2023week1/Web/BeginofPHP/1.png" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'><br>md5弱比较，get传参给key1和key2，使得key1和key2的md5值出现0e开头<br><img src="/2023/10/09/NewStarCTF2023week1/Web/BeginofPHP/2.png" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'><br><img src="/2023/10/09/NewStarCTF2023week1/Web/BeginofPHP/3.png" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'><br>key3与key4相同，都使用数组进行绕过<br><img src="/2023/10/09/NewStarCTF2023week1/Web/BeginofPHP/4.png" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'><br><img src="/2023/10/09/NewStarCTF2023week1/Web/BeginofPHP/5.png" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'><br>key5利用换行符进行绕过<br><img src="/2023/10/09/NewStarCTF2023week1/Web/BeginofPHP/6.png" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'><br>传入换行符给flag5即可得出flag<br><img src="/2023/10/09/NewStarCTF2023week1/Web/BeginofPHP/7.png" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'><br>flag{d5c90421-81d4-40e3-8cfc-5bab099ee54c}</p>
-<h2 id="泄漏的秘密"><a href="#泄漏的秘密" class="headerlink" title="泄漏的秘密"></a>泄漏的秘密</h2><p><img src="/2023/10/09/NewStarCTF2023week1/Web/%E6%B3%84%E6%BC%8F%E7%9A%84%E7%A7%98%E5%AF%86/1.png" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'><br>抓包和代码都没看出什么东西，只能用工具扫，发现429报错，一个一个常见的挨个试，试出了<a target="_blank" rel="noopener" href="http://www.zip和robots.txt得到flag/">www.zip和robots.txt得到flag</a><br><img src="/2023/10/09/NewStarCTF2023week1/Web/%E6%B3%84%E6%BC%8F%E7%9A%84%E7%A7%98%E5%AF%86/2.png" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'><br><img src="/2023/10/09/NewStarCTF2023week1/Web/%E6%B3%84%E6%BC%8F%E7%9A%84%E7%A7%98%E5%AF%86/3.png" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'><br><img src="/2023/10/09/NewStarCTF2023week1/Web/%E6%B3%84%E6%BC%8F%E7%9A%84%E7%A7%98%E5%AF%86/4.png" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'><br>flag{r0bots_1s_s0_us3ful_4nd_<a target="_blank" rel="noopener" href="http://www.zip_1s_s0_d4ng3rous}/">www.zip_1s_s0_d4ng3rous}</a></p>
-<h2 id="Begin-of-Upload"><a href="#Begin-of-Upload" class="headerlink" title="Begin of Upload"></a>Begin of Upload</h2><p><img src="/2023/10/09/NewStarCTF2023week1/Web/BeginofUpload/1.png" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'><br>查看源码，只允许上传”jpg”, “jpeg”, “png”, “gif”格式，但是属于前端验证，尝试抓包绕过<br><img src="/2023/10/09/NewStarCTF2023week1/Web/BeginofUpload/2.png" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'><br><img src="/2023/10/09/NewStarCTF2023week1/Web/BeginofUpload/3.png" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'><br><img src="/2023/10/09/NewStarCTF2023week1/Web/BeginofUpload/4.png" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'><br>绕过成功，利用蚁剑连接<br><img src="/2023/10/09/NewStarCTF2023week1/Web/BeginofUpload/5.png" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'><br><img src="/2023/10/09/NewStarCTF2023week1/Web/BeginofUpload/6.png" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'><br><img src="/2023/10/09/NewStarCTF2023week1/Web/BeginofUpload/7.png" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'><br>在根目录获取到flag<br>flag{bbcca8ef-8101-47bf-b096-19fa8fab3895}</p>
-<h2 id="Begin-of-HTTP"><a href="#Begin-of-HTTP" class="headerlink" title="Begin of HTTP"></a>Begin of HTTP</h2><p><img src="/2023/10/09/NewStarCTF2023week1/Web/BeginofHTTP/1.png" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'><br>打开之后，提示get传入ctf的参数<br><img src="/2023/10/09/NewStarCTF2023week1/Web/BeginofHTTP/2.png" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'><br>传入ctf参数后，又需要post传入secret参数，但有需要找一找<br><img src="/2023/10/09/NewStarCTF2023week1/Web/BeginofHTTP/3.png" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'><br><img src="/2023/10/09/NewStarCTF2023week1/Web/BeginofHTTP/4.png" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'><br>在源码中，找到经过base64加密过的secret参数，解密后传入<br><img src="/2023/10/09/NewStarCTF2023week1/Web/BeginofHTTP/5.png" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'><br>后需要将验证power更改成ctfer，进行抓包修改power值<br><img src="/2023/10/09/NewStarCTF2023week1/Web/BeginofHTTP/6.png" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'><br><img src="/2023/10/09/NewStarCTF2023week1/Web/BeginofHTTP/7.png" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'><br>更改完power后，又需要更改UA头，<br><img src="/2023/10/09/NewStarCTF2023week1/Web/BeginofHTTP/8.png" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'><br><img src="/2023/10/09/NewStarCTF2023week1/Web/BeginofHTTP/9.png" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'><br>用bp抓包后发送Repeater，进行修改发送<br>回显需要从newstarctf.com进行访问<br><img src="/2023/10/09/NewStarCTF2023week1/Web/BeginofHTTP/10.png" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'><br>伪造referer，发送后回显需要本地用户进行访问<br><img src="/2023/10/09/NewStarCTF2023week1/Web/BeginofHTTP/11.png" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'><br>想到XFF伪造，可是参入后，还是回显本地用户访问，可见服务器不是检测XFF<br><img src="/2023/10/09/NewStarCTF2023week1/Web/BeginofHTTP/12.png" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'><br>查了一下，用X-Real-IP伪造，顺利得到flag<br>flag{d29a88b8-18b4-4df8-b6b0-aaa2e82fecee}</p>
-<h2 id="ErrorFlask"><a href="#ErrorFlask" class="headerlink" title="ErrorFlask"></a>ErrorFlask</h2><p><img src="/2023/10/09/NewStarCTF2023week1/Web/ErrorFlask/1.png" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'><br>显示入number1和number2的参数<br><img src="/2023/10/09/NewStarCTF2023week1/Web/ErrorFlask/2.png" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'><br>随机传入一个参数，显示在源码中，但源码中没有其他的内容<br><img src="/2023/10/09/NewStarCTF2023week1/Web/ErrorFlask/3.png" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'><br>参数非整型字符时报错，出现了flag<br>flag{Y0u_@re_3enset1ve_4bout_deb8g}</p>
-<h2 id="R-C-E"><a href="#R-C-E" class="headerlink" title="R!C!E!"></a>R!C!E!</h2><p><img src="/2023/10/09/NewStarCTF2023week1/Web/R!C!E!/1.png" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'><br>看代码执行，先传入参数<br><img src="/2023/10/09/NewStarCTF2023week1/Web/R!C!E!/2.png" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'><br>传入的参数符合代码执行，但并于回显<br><img src="/2023/10/09/NewStarCTF2023week1/Web/R!C!E!/3.png" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'><br>根据PHP特性，当_更换为[时，回显<br><img src="/2023/10/09/NewStarCTF2023week1/Web/R!C!E!/4.png" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'><br>根据代码执行条件，利用php特性与命令相似的原则进行代码过滤，得到flag<br>flag{108524d1-a0c7-48a3-9030-80717a5ac9f7}</p>
-<h2 id="EasyLogin"><a href="#EasyLogin" class="headerlink" title="EasyLogin"></a>EasyLogin</h2><p><img src="/2023/10/09/NewStarCTF2023week1/Web/EasyLogin/1.png" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'><br>发现是登录页面，源码中也没有可利用的信息<br><img src="/2023/10/09/NewStarCTF2023week1/Web/EasyLogin/2.png" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'><br>创建用户，发现到了linux界面，退出对话，发现&#x2F;home下有个admin用户，但没有其他目录或其他方式获取admin的密码<br><img src="/2023/10/09/NewStarCTF2023week1/Web/EasyLogin/3.png" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'><br><img src="/2023/10/09/NewStarCTF2023week1/Web/EasyLogin/4.png" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'><br><img src="/2023/10/09/NewStarCTF2023week1/Web/EasyLogin/5.png" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'><br><img src="/2023/10/09/NewStarCTF2023week1/Web/EasyLogin/6.png" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'><br>利用bp弱口令top1000进行爆破，爆破出密码，登录后查看到的信息还是和之前一样<br><img src="/2023/10/09/NewStarCTF2023week1/Web/EasyLogin/7.png" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'><br>查看抓包信息，找到一个响应码不同的数据包，点击响应包，查看请求，发现flag<br>flag{0b35071f-33ce-41eb-ba16-3562b4561222}</p>
-<h1 id="CRYPTO"><a href="#CRYPTO" class="headerlink" title="CRYPTO"></a>CRYPTO</h1><h2 id="Brainfuck"><a href="#Brainfuck" class="headerlink" title="Brainfuck"></a>Brainfuck</h2><p><img src="/2023/10/09/NewStarCTF2023week1/CRYPTO/Brainfuck/1.png" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'><br>看文档得知是rainfuck&#x2F;ook密码，解密得出flag<br><img src="/2023/10/09/NewStarCTF2023week1/CRYPTO/Brainfuck/2.png" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'><br>flag{Oiiaioooooiai#b7c0b1866fe58e12}</p>
-<h2 id="Caesar’s-Secert"><a href="#Caesar’s-Secert" class="headerlink" title="Caesar’s Secert"></a>Caesar’s Secert</h2><p><img src="/2023/10/09/NewStarCTF2023week1/CRYPTO/Caesar'sSecert/1.png" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'><br>看文档得知是凯撒密码，解密得出flag<br><img src="/2023/10/09/NewStarCTF2023week1/CRYPTO/Caesar'sSecert/2.png" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'><br>flag{ca3s4r’s_c1pher_i5_v4ry_3azy}</p>
-<h2 id="Fence"><a href="#Fence" class="headerlink" title="Fence"></a>Fence</h2><p><img src="/2023/10/09/NewStarCTF2023week1/CRYPTO/Fence/1.png" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'><br>看文档得知是栅栏密码，解密得出flag<br><img src="/2023/10/09/NewStarCTF2023week1/CRYPTO/Fence/2.png" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'><br>flag{reordering_the_plaintext#686f8c03}</p>
-<h2 id="Vigenere"><a href="#Vigenere" class="headerlink" title="Vigenère"></a>Vigenère</h2><p><img src="/2023/10/09/NewStarCTF2023week1/CRYPTO/Vigen%C3%A8re/1.png" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'><br>看文档得知是维吉尼亚密码，已知flag解出key为kfc，解密得出flag<br><img src="/2023/10/09/NewStarCTF2023week1/CRYPTO/Vigen%C3%A8re/2.png" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'><br>flag{la_c1fr4_del_5ign0r_giovan_batt1st4_b3ll5s0}</p>
-<h2 id="Babyencoding"><a href="#Babyencoding" class="headerlink" title="Babyencoding"></a>Babyencoding</h2><p><img src="/2023/10/09/NewStarCTF2023week1/CRYPTO/Babyencoding/1.png" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'><br>三串字符，三种加密，<br><img src="/2023/10/09/NewStarCTF2023week1/CRYPTO/Babyencoding/2.png" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'><br><img src="/2023/10/09/NewStarCTF2023week1/CRYPTO/Babyencoding/3.png" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'><br><img src="/2023/10/09/NewStarCTF2023week1/CRYPTO/Babyencoding/4.png" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'><br>分别是base64、base32、unencode，解密得出flag<br>flag{dazzling_encoding#4e0ad4f0ca08d1e1d0f10c0c7afe422fea7c55192c992036ef623372601ff3a}</p>
-<h1 id="Misc"><a href="#Misc" class="headerlink" title="Misc"></a>Misc</h1><h2 id="CyberChef’s-Secret"><a href="#CyberChef’s-Secret" class="headerlink" title="CyberChef’s Secret"></a>CyberChef’s Secret</h2><p><img src="/2023/10/09/NewStarCTF2023week1/Misc/CyberChef'sSecret/1.png" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'><br>先用base32，然后base58，最后base64，得出flag<br><img src="/2023/10/09/NewStarCTF2023week1/Misc/CyberChef'sSecret/2.png" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'><br>flag{Base_15_S0_Easy_^_^}</p>
-<h2 id="机密图片"><a href="#机密图片" class="headerlink" title="机密图片"></a>机密图片</h2><p><img src="/2023/10/09/NewStarCTF2023week1/Misc/%E6%9C%BA%E5%AF%86%E5%9B%BE%E7%89%87/1.png" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'><br>扫出来是Welcome to NewStarCTF 2023!；只能重新找办法，放进Stegsolve一调色，发现是LSB隐写<br><img src="/2023/10/09/NewStarCTF2023week1/Misc/%E6%9C%BA%E5%AF%86%E5%9B%BE%E7%89%87/2.png" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'><br>导出查看十六进制文件发现flag<br><img src="/2023/10/09/NewStarCTF2023week1/Misc/%E6%9C%BA%E5%AF%86%E5%9B%BE%E7%89%87/3.png" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'><br>flag{W3lc0m3_t0_N3wSt4RCTF_2023_7cda3ece}</p>
-<h2 id="空白格"><a href="#空白格" class="headerlink" title="空白格"></a>空白格</h2><p><img src="/2023/10/09/NewStarCTF2023week1/Misc/%E7%A9%BA%E7%99%BD%E6%A0%BC/1.png" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'><br>打开文件，一片空白，但可以选中，判断是whitespace隐写<br><img src="/2023/10/09/NewStarCTF2023week1/Misc/%E7%A9%BA%E7%99%BD%E6%A0%BC/2.png" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'><br>解密得出flag<br>flag{w3_h4v3_to0_m4ny_wh1t3_sp4ce_2a5b4e04}</p>
-<h2 id="流量！鲨鱼！"><a href="#流量！鲨鱼！" class="headerlink" title="流量！鲨鱼！"></a>流量！鲨鱼！</h2><p><img src="/2023/10/09/NewStarCTF2023week1/Misc/%E6%B5%81%E9%87%8F%EF%BC%81%E9%B2%A8%E9%B1%BC%EF%BC%81/1.png" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'><br>一堆数据包，基本响应是404和403，看到一个疑似flag的数据包，响应是200，导出查看<br><img src="/2023/10/09/NewStarCTF2023week1/Misc/%E6%B5%81%E9%87%8F%EF%BC%81%E9%B2%A8%E9%B1%BC%EF%BC%81/2.png" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'><br><img src="/2023/10/09/NewStarCTF2023week1/Misc/%E6%B5%81%E9%87%8F%EF%BC%81%E9%B2%A8%E9%B1%BC%EF%BC%81/3.png" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'><br><img src="/2023/10/09/NewStarCTF2023week1/Misc/%E6%B5%81%E9%87%8F%EF%BC%81%E9%B2%A8%E9%B1%BC%EF%BC%81/4.png" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'><br><img src="/2023/10/09/NewStarCTF2023week1/Misc/%E6%B5%81%E9%87%8F%EF%BC%81%E9%B2%A8%E9%B1%BC%EF%BC%81/5.png" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'><br>base64编码解密得出flag<br>flag{Wri35h4rk_1s_u53ful_b72a609537e6}</p>
-<h2 id="压缩包们"><a href="#压缩包们" class="headerlink" title="压缩包们"></a>压缩包们</h2><p><img src="/2023/10/09/NewStarCTF2023week1/Misc/%E5%8E%8B%E7%BC%A9%E5%8C%85%E4%BB%AC/1.png" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'><br>用压缩软件打开，发现一个flag.zip，但提示文件损坏<br><img src="/2023/10/09/NewStarCTF2023week1/Misc/%E5%8E%8B%E7%BC%A9%E5%8C%85%E4%BB%AC/2.png" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'><br><img src="/2023/10/09/NewStarCTF2023week1/Misc/%E5%8E%8B%E7%BC%A9%E5%8C%85%E4%BB%AC/3.png" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'><br><img src="/2023/10/09/NewStarCTF2023week1/Misc/%E5%8E%8B%E7%BC%A9%E5%8C%85%E4%BB%AC/4.png" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'><br>进入十六进制文件，发现文件头损坏，修复后可以成功解压缩<br><img src="/2023/10/09/NewStarCTF2023week1/Misc/%E5%8E%8B%E7%BC%A9%E5%8C%85%E4%BB%AC/5.png" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'><br>但又发现flag.zip也是损坏的，继续查看flag.zip的十六进制文件<br><img src="/2023/10/09/NewStarCTF2023week1/Misc/%E5%8E%8B%E7%BC%A9%E5%8C%85%E4%BB%AC/6.png" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'><br><img src="/2023/10/09/NewStarCTF2023week1/Misc/%E5%8E%8B%E7%BC%A9%E5%8C%85%E4%BB%AC/7.png" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'><br>修复完成，但需要密码，在flag.zip的十六进制中，发现了一串疑似base64编码的字符串，尝试解密<br><img src="/2023/10/09/NewStarCTF2023week1/Misc/%E5%8E%8B%E7%BC%A9%E5%8C%85%E4%BB%AC/8.png" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'><br>解密发现，给了我们一个密码是6位数字的提示，那就只能爆破一下<br><img src="/2023/10/09/NewStarCTF2023week1/Misc/%E5%8E%8B%E7%BC%A9%E5%8C%85%E4%BB%AC/9.png" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'><br>爆破得到密码，解压flag.zip<br><img src="/2023/10/09/NewStarCTF2023week1/Misc/%E5%8E%8B%E7%BC%A9%E5%8C%85%E4%BB%AC/10.png" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'><br>查看flag.txt，得到flag<br>flag{y0u_ar3_the_m4ter_of_z1111ppp_606a4adc}</p>
-<h2 id="隐秘的眼睛"><a href="#隐秘的眼睛" class="headerlink" title="隐秘的眼睛"></a>隐秘的眼睛</h2><p><img src="/2023/10/09/NewStarCTF2023week1/Misc/%E9%9A%90%E7%A7%98%E7%9A%84%E7%9C%BC%E7%9D%9B/1.png" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'><br>图片上有一些小点，尝试解码<br><img src="/2023/10/09/NewStarCTF2023week1/Misc/%E9%9A%90%E7%A7%98%E7%9A%84%E7%9C%BC%E7%9D%9B/2.png" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'><br>flag就出来了<br>flag{R0ck1ng_y0u_63b0dc13a591}</p>
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/MISC/">MISC</a>
+          <span class="category-list-count">1</span>
+        </li>
 
-</article>
-    
-    <div class="trm-reward">
         
-            <span class="trm-reward-btn trm-glow" onclick='var qr = document.getElementById("qr"); qr.style.display = (qr.style.display === "none") ? "block" : "none";'>
-                <i class="iconfont fas fa-hand-holding-usd"></i>
-            </span>
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/WEB/">WEB</a>
+          <span class="category-list-count">1</span>
+        </li>
+
         
-        <p class="trm-reward-comment">文章对你有用的话，赏杯奶茶，感谢！！</p>
-        <div id="qr" style="display:none;">
-            
-                <div style="display:inline-block">
-                    <a rel="noopener noreferrer" href='weixin.jpg' target='_blank' >
-                       <img src="/weixin.jpg" alt="微信" loading="lazy">
-                    </a>
-                    <p>微信</p>
-                </div>
-            
-                <div style="display:inline-block">
-                    <a rel="noopener noreferrer" href='zhifubao.jpg' target='_blank' >
-                       <img src="/zhifubao.jpg" alt="支付宝" loading="lazy">
-                    </a>
-                    <p>支付宝</p>
-                </div>
-            
-        </div>
+      </ul>
+
     </div>
+  </div>
+
 
     
-
-</div>
-<div class="trm-post-next-prev row">
-    <div class="col-lg-12">
-        <!-- title -->
-        <h5 class="trm-title-with-divider">
-            其他文章
-            <span data-number="02"></span>
-        </h5>
-    </div>
-    
-        <div class="col-lg-6">
-    <div class="trm-blog-card trm-scroll-animation">
-        <a href="/2023/10/11/PolarD&N/" class="trm-cover-frame trm-anima-link">
-            
-            
-                <img alt="cover" class="no-fancybox" src="/img/block.jpg">
-            
-        </a>
         
-        <div class="trm-card-descr">
-            <div class="trm-label trm-category trm-mb-20">
-                <a href=" /categories/CTF/">
-                    CTF
-                </a>
-            </div>
-            <h5>
-                <a href="/2023/10/11/PolarD&N/" class="trm-anima-link">
-                    PolarD&amp;N
-                </a>
-            </h5>
-            <div class="trm-divider trm-mb-20 trm-mt-20"></div>
-            <ul class="trm-card-data trm-label">
-                <li>23/10/11</li>
-                <li>16:26</li>
-                
-                
-            </ul>
-        </div>
-    </div>
-</div>
-    
-    
-        <div class="col-lg-6">
-    <div class="trm-blog-card trm-scroll-animation">
-        <a href="/2023/09/30/helo/" class="trm-cover-frame trm-anima-link">
-            
-            
-                <img alt="cover" class="no-fancybox" src="/img/block.jpg">
-            
-        </a>
         
-        <div class="trm-card-descr">
-            <div class="trm-label trm-category trm-mb-20">
-                <a href=" /categories/MISC/">
-                    MISC
-                </a>
-            </div>
-            <h5>
-                <a href="/2023/09/30/helo/" class="trm-anima-link">
-                    Hello World
-                </a>
-            </h5>
-            <div class="trm-divider trm-mb-20 trm-mt-20"></div>
-            <ul class="trm-card-data trm-label">
-                <li>23/09/30</li>
-                <li>02:46</li>
-                
-                
-            </ul>
-        </div>
+  <div class="nexmoe-widget-wrap">
+    <div id="randomtagcloud" class="nexmoe-widget tagcloud nexmoe-rainbow">
+      <a href="/tags/CTF/" style="font-size: 20px;">CTF</a> <a href="/tags/php/" style="font-size: 10px;">php</a>
+    </div>
+    
+  </div>
+
+    
+        
+        
+        
+  <div class="nexmoe-widget-wrap">
+    <h3 class="nexmoe-widget-title">Archive</h3>
+    <div class="nexmoe-widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/">2023</a><span class="archive-list-count">7</span></li></ul>
+    </div>
+  </div>
+
+
+
+    
+        
+        
+  <div class="nexmoe-widget-wrap">
+    <h3 class="nexmoe-widget-title">Recent Posts</h3>
+    <div class="nexmoe-widget">
+      <ul>
+        
+          <li>
+            <a href="/2023/10/15/NewStarCTF2023week3/">NewStarCTF2023week3</a>
+          </li>
+        
+          <li>
+            <a href="/2023/10/15/NewStarCTF2023week2/">NewStarCTF2023week2</a>
+          </li>
+        
+          <li>
+            <a href="/2023/10/14/2023%20SWPU%20NSS/">2023 SWPU NSS</a>
+          </li>
+        
+          <li>
+            <a href="/2023/10/11/PolarD&N/">PolarD&amp;N</a>
+          </li>
+        
+          <li>
+            <a href="/2023/10/09/NewStarCTF2023week1/">NewStarCTF2023week1</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+    
+        
+        <div class="nexmoe-widget-wrap">
+    <div class="nexmoe-widget nexmoe-link">
+		<ul>
+        
+		</ul>
     </div>
 </div>
+<style>
+.nexmoe-widget-wrap .nexmoe-link ul li a {
+    text-align : center;
+}
+.nexmoe-widget-wrap .nexmoe-link ul li a img {
+    max-width : 100%;
+}
+.nexmoe-widget-wrap .nexmoe-link ul li a p {
+    margin: 10px 0;
+}
+</style>
+
     
+</aside>
+    <div class="nexmoe-copyright">
+        &copy; 2023 hao11
+        Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+        & <a href="https://github.com/theme-nexmoe/hexo-theme-nexmoe" target="_blank">Nexmoe</a>
+        
+    </div>
+</div><!-- .nexmoe-drawer -->
+    </div>
+    <div id="nexmoe-content">
+        <div class="nexmoe-primary">
+            <div class="nexmoe-post">
+
+  <article>
+      
+          <div class="nexmoe-post-cover" style="padding-bottom: 62.5%;"> 
+              <img src="hengfu.jpg" alt="NewStarCTF2023week1" loading="lazy">
+              <h1>NewStarCTF2023week1</h1>
+          </div>
+      
+      
+      <div class="nexmoe-post-meta nexmoe-rainbow" style="margin:10px 0!important;">
+    <a><i class="nexmoefont icon-calendar-fill"></i>2023年10月09日</a>
 </div>
+      
+    <a><i class="nexmoefont icon-areachart"></i>约1k字</a>
+    <a><i class="nexmoefont icon-time-circle-fill"></i>预计需要3分钟</a>
 
-    
 
-
-
-                    <div class="trm-divider footer-divider"></div>
-
-                    <!-- footer -->
-                    <footer class="trm-scroll-animation">
-
-    
-
-    
-        <div class="trm-footer-item">
-            <span>© 2023- 2023</span>
-            <span class="footer-separator"data-separator=" · "></span>
-            <span class="trm-accent-color">hao11</span>
-        </div>
-    
+      <h1 id="Web"><a href="#Web" class="headerlink" title="Web"></a>Web</h1><h2 id="Begin-of-PHP"><a href="#Begin-of-PHP" class="headerlink" title="Begin of PHP"></a>Begin of PHP</h2><p><img src="/2023/10/09/NewStarCTF2023week1/Web/BeginofPHP/1.png"><br>md5弱比较，get传参给key1和key2，使得key1和key2的md5值出现0e开头<br><img src="/2023/10/09/NewStarCTF2023week1/Web/BeginofPHP/2.png"><br><img src="/2023/10/09/NewStarCTF2023week1/Web/BeginofPHP/3.png"><br>key3与key4相同，都使用数组进行绕过<br><img src="/2023/10/09/NewStarCTF2023week1/Web/BeginofPHP/4.png"><br><img src="/2023/10/09/NewStarCTF2023week1/Web/BeginofPHP/5.png"><br>key5利用换行符进行绕过<br><img src="/2023/10/09/NewStarCTF2023week1/Web/BeginofPHP/6.png"><br>传入换行符给flag5即可得出flag<br><img src="/2023/10/09/NewStarCTF2023week1/Web/BeginofPHP/7.png"><br>flag{d5c90421-81d4-40e3-8cfc-5bab099ee54c}</p>
+<h2 id="泄漏的秘密"><a href="#泄漏的秘密" class="headerlink" title="泄漏的秘密"></a>泄漏的秘密</h2><p><img src="/2023/10/09/NewStarCTF2023week1/Web/%E6%B3%84%E6%BC%8F%E7%9A%84%E7%A7%98%E5%AF%86/1.png"><br>抓包和代码都没看出什么东西，只能用工具扫，发现429报错，一个一个常见的挨个试，试出了<a target="_blank" rel="noopener" href="http://www.zip和robots.txt得到flag/">www.zip和robots.txt得到flag</a><br><img src="/2023/10/09/NewStarCTF2023week1/Web/%E6%B3%84%E6%BC%8F%E7%9A%84%E7%A7%98%E5%AF%86/2.png"><br><img src="/2023/10/09/NewStarCTF2023week1/Web/%E6%B3%84%E6%BC%8F%E7%9A%84%E7%A7%98%E5%AF%86/3.png"><br><img src="/2023/10/09/NewStarCTF2023week1/Web/%E6%B3%84%E6%BC%8F%E7%9A%84%E7%A7%98%E5%AF%86/4.png"><br>flag{r0bots_1s_s0_us3ful_4nd_<a target="_blank" rel="noopener" href="http://www.zip_1s_s0_d4ng3rous}/">www.zip_1s_s0_d4ng3rous}</a></p>
+<h2 id="Begin-of-Upload"><a href="#Begin-of-Upload" class="headerlink" title="Begin of Upload"></a>Begin of Upload</h2><p><img src="/2023/10/09/NewStarCTF2023week1/Web/BeginofUpload/1.png"><br>查看源码，只允许上传”jpg”, “jpeg”, “png”, “gif”格式，但是属于前端验证，尝试抓包绕过<br><img src="/2023/10/09/NewStarCTF2023week1/Web/BeginofUpload/2.png"><br><img src="/2023/10/09/NewStarCTF2023week1/Web/BeginofUpload/3.png"><br><img src="/2023/10/09/NewStarCTF2023week1/Web/BeginofUpload/4.png"><br>绕过成功，利用蚁剑连接<br><img src="/2023/10/09/NewStarCTF2023week1/Web/BeginofUpload/5.png"><br><img src="/2023/10/09/NewStarCTF2023week1/Web/BeginofUpload/6.png"><br><img src="/2023/10/09/NewStarCTF2023week1/Web/BeginofUpload/7.png"><br>在根目录获取到flag<br>flag{bbcca8ef-8101-47bf-b096-19fa8fab3895}</p>
+<h2 id="Begin-of-HTTP"><a href="#Begin-of-HTTP" class="headerlink" title="Begin of HTTP"></a>Begin of HTTP</h2><p><img src="/2023/10/09/NewStarCTF2023week1/Web/BeginofHTTP/1.png"><br>打开之后，提示get传入ctf的参数<br><img src="/2023/10/09/NewStarCTF2023week1/Web/BeginofHTTP/2.png"><br>传入ctf参数后，又需要post传入secret参数，但有需要找一找<br><img src="/2023/10/09/NewStarCTF2023week1/Web/BeginofHTTP/3.png"><br><img src="/2023/10/09/NewStarCTF2023week1/Web/BeginofHTTP/4.png"><br>在源码中，找到经过base64加密过的secret参数，解密后传入<br><img src="/2023/10/09/NewStarCTF2023week1/Web/BeginofHTTP/5.png"><br>后需要将验证power更改成ctfer，进行抓包修改power值<br><img src="/2023/10/09/NewStarCTF2023week1/Web/BeginofHTTP/6.png"><br><img src="/2023/10/09/NewStarCTF2023week1/Web/BeginofHTTP/7.png"><br>更改完power后，又需要更改UA头，<br><img src="/2023/10/09/NewStarCTF2023week1/Web/BeginofHTTP/8.png"><br><img src="/2023/10/09/NewStarCTF2023week1/Web/BeginofHTTP/9.png"><br>用bp抓包后发送Repeater，进行修改发送<br>回显需要从newstarctf.com进行访问<br><img src="/2023/10/09/NewStarCTF2023week1/Web/BeginofHTTP/10.png"><br>伪造referer，发送后回显需要本地用户进行访问<br><img src="/2023/10/09/NewStarCTF2023week1/Web/BeginofHTTP/11.png"><br>想到XFF伪造，可是参入后，还是回显本地用户访问，可见服务器不是检测XFF<br><img src="/2023/10/09/NewStarCTF2023week1/Web/BeginofHTTP/12.png"><br>查了一下，用X-Real-IP伪造，顺利得到flag<br>flag{d29a88b8-18b4-4df8-b6b0-aaa2e82fecee}</p>
+<h2 id="ErrorFlask"><a href="#ErrorFlask" class="headerlink" title="ErrorFlask"></a>ErrorFlask</h2><p><img src="/2023/10/09/NewStarCTF2023week1/Web/ErrorFlask/1.png"><br>显示入number1和number2的参数<br><img src="/2023/10/09/NewStarCTF2023week1/Web/ErrorFlask/2.png"><br>随机传入一个参数，显示在源码中，但源码中没有其他的内容<br><img src="/2023/10/09/NewStarCTF2023week1/Web/ErrorFlask/3.png"><br>参数非整型字符时报错，出现了flag<br>flag{Y0u_@re_3enset1ve_4bout_deb8g}</p>
+<h2 id="R-C-E"><a href="#R-C-E" class="headerlink" title="R!C!E!"></a>R!C!E!</h2><p><img src="/2023/10/09/NewStarCTF2023week1/Web/R!C!E!/1.png"><br>看代码执行，先传入参数<br><img src="/2023/10/09/NewStarCTF2023week1/Web/R!C!E!/2.png"><br>传入的参数符合代码执行，但并于回显<br><img src="/2023/10/09/NewStarCTF2023week1/Web/R!C!E!/3.png"><br>根据PHP特性，当_更换为[时，回显<br><img src="/2023/10/09/NewStarCTF2023week1/Web/R!C!E!/4.png"><br>根据代码执行条件，利用php特性与命令相似的原则进行代码过滤，得到flag<br>flag{108524d1-a0c7-48a3-9030-80717a5ac9f7}</p>
+<h2 id="EasyLogin"><a href="#EasyLogin" class="headerlink" title="EasyLogin"></a>EasyLogin</h2><p><img src="/2023/10/09/NewStarCTF2023week1/Web/EasyLogin/1.png"><br>发现是登录页面，源码中也没有可利用的信息<br><img src="/2023/10/09/NewStarCTF2023week1/Web/EasyLogin/2.png"><br>创建用户，发现到了linux界面，退出对话，发现&#x2F;home下有个admin用户，但没有其他目录或其他方式获取admin的密码<br><img src="/2023/10/09/NewStarCTF2023week1/Web/EasyLogin/3.png"><br><img src="/2023/10/09/NewStarCTF2023week1/Web/EasyLogin/4.png"><br><img src="/2023/10/09/NewStarCTF2023week1/Web/EasyLogin/5.png"><br><img src="/2023/10/09/NewStarCTF2023week1/Web/EasyLogin/6.png"><br>利用bp弱口令top1000进行爆破，爆破出密码，登录后查看到的信息还是和之前一样<br><img src="/2023/10/09/NewStarCTF2023week1/Web/EasyLogin/7.png"><br>查看抓包信息，找到一个响应码不同的数据包，点击响应包，查看请求，发现flag<br>flag{0b35071f-33ce-41eb-ba16-3562b4561222}</p>
+<h1 id="CRYPTO"><a href="#CRYPTO" class="headerlink" title="CRYPTO"></a>CRYPTO</h1><h2 id="Brainfuck"><a href="#Brainfuck" class="headerlink" title="Brainfuck"></a>Brainfuck</h2><p><img src="/2023/10/09/NewStarCTF2023week1/CRYPTO/Brainfuck/1.png"><br>看文档得知是rainfuck&#x2F;ook密码，解密得出flag<br><img src="/2023/10/09/NewStarCTF2023week1/CRYPTO/Brainfuck/2.png"><br>flag{Oiiaioooooiai#b7c0b1866fe58e12}</p>
+<h2 id="Caesar’s-Secert"><a href="#Caesar’s-Secert" class="headerlink" title="Caesar’s Secert"></a>Caesar’s Secert</h2><p><img src="/2023/10/09/NewStarCTF2023week1/CRYPTO/Caesar'sSecert/1.png"><br>看文档得知是凯撒密码，解密得出flag<br><img src="/2023/10/09/NewStarCTF2023week1/CRYPTO/Caesar'sSecert/2.png"><br>flag{ca3s4r’s_c1pher_i5_v4ry_3azy}</p>
+<h2 id="Fence"><a href="#Fence" class="headerlink" title="Fence"></a>Fence</h2><p><img src="/2023/10/09/NewStarCTF2023week1/CRYPTO/Fence/1.png"><br>看文档得知是栅栏密码，解密得出flag<br><img src="/2023/10/09/NewStarCTF2023week1/CRYPTO/Fence/2.png"><br>flag{reordering_the_plaintext#686f8c03}</p>
+<h2 id="Vigenere"><a href="#Vigenere" class="headerlink" title="Vigenère"></a>Vigenère</h2><p><img src="/2023/10/09/NewStarCTF2023week1/CRYPTO/Vigen%C3%A8re/1.png"><br>看文档得知是维吉尼亚密码，已知flag解出key为kfc，解密得出flag<br><img src="/2023/10/09/NewStarCTF2023week1/CRYPTO/Vigen%C3%A8re/2.png"><br>flag{la_c1fr4_del_5ign0r_giovan_batt1st4_b3ll5s0}</p>
+<h2 id="Babyencoding"><a href="#Babyencoding" class="headerlink" title="Babyencoding"></a>Babyencoding</h2><p><img src="/2023/10/09/NewStarCTF2023week1/CRYPTO/Babyencoding/1.png"><br>三串字符，三种加密，<br><img src="/2023/10/09/NewStarCTF2023week1/CRYPTO/Babyencoding/2.png"><br><img src="/2023/10/09/NewStarCTF2023week1/CRYPTO/Babyencoding/3.png"><br><img src="/2023/10/09/NewStarCTF2023week1/CRYPTO/Babyencoding/4.png"><br>分别是base64、base32、unencode，解密得出flag<br>flag{dazzling_encoding#4e0ad4f0ca08d1e1d0f10c0c7afe422fea7c55192c992036ef623372601ff3a}</p>
+<h1 id="Misc"><a href="#Misc" class="headerlink" title="Misc"></a>Misc</h1><h2 id="CyberChef’s-Secret"><a href="#CyberChef’s-Secret" class="headerlink" title="CyberChef’s Secret"></a>CyberChef’s Secret</h2><p><img src="/2023/10/09/NewStarCTF2023week1/Misc/CyberChef'sSecret/1.png"><br>先用base32，然后base58，最后base64，得出flag<br><img src="/2023/10/09/NewStarCTF2023week1/Misc/CyberChef'sSecret/2.png"><br>flag{Base_15_S0_Easy_^_^}</p>
+<h2 id="机密图片"><a href="#机密图片" class="headerlink" title="机密图片"></a>机密图片</h2><p><img src="/2023/10/09/NewStarCTF2023week1/Misc/%E6%9C%BA%E5%AF%86%E5%9B%BE%E7%89%87/1.png"><br>扫出来是Welcome to NewStarCTF 2023!；只能重新找办法，放进Stegsolve一调色，发现是LSB隐写<br><img src="/2023/10/09/NewStarCTF2023week1/Misc/%E6%9C%BA%E5%AF%86%E5%9B%BE%E7%89%87/2.png"><br>导出查看十六进制文件发现flag<br><img src="/2023/10/09/NewStarCTF2023week1/Misc/%E6%9C%BA%E5%AF%86%E5%9B%BE%E7%89%87/3.png"><br>flag{W3lc0m3_t0_N3wSt4RCTF_2023_7cda3ece}</p>
+<h2 id="空白格"><a href="#空白格" class="headerlink" title="空白格"></a>空白格</h2><p><img src="/2023/10/09/NewStarCTF2023week1/Misc/%E7%A9%BA%E7%99%BD%E6%A0%BC/1.png"><br>打开文件，一片空白，但可以选中，判断是whitespace隐写<br><img src="/2023/10/09/NewStarCTF2023week1/Misc/%E7%A9%BA%E7%99%BD%E6%A0%BC/2.png"><br>解密得出flag<br>flag{w3_h4v3_to0_m4ny_wh1t3_sp4ce_2a5b4e04}</p>
+<h2 id="流量！鲨鱼！"><a href="#流量！鲨鱼！" class="headerlink" title="流量！鲨鱼！"></a>流量！鲨鱼！</h2><p><img src="/2023/10/09/NewStarCTF2023week1/Misc/%E6%B5%81%E9%87%8F%EF%BC%81%E9%B2%A8%E9%B1%BC%EF%BC%81/1.png"><br>一堆数据包，基本响应是404和403，看到一个疑似flag的数据包，响应是200，导出查看<br><img src="/2023/10/09/NewStarCTF2023week1/Misc/%E6%B5%81%E9%87%8F%EF%BC%81%E9%B2%A8%E9%B1%BC%EF%BC%81/2.png"><br><img src="/2023/10/09/NewStarCTF2023week1/Misc/%E6%B5%81%E9%87%8F%EF%BC%81%E9%B2%A8%E9%B1%BC%EF%BC%81/3.png"><br><img src="/2023/10/09/NewStarCTF2023week1/Misc/%E6%B5%81%E9%87%8F%EF%BC%81%E9%B2%A8%E9%B1%BC%EF%BC%81/4.png"><br><img src="/2023/10/09/NewStarCTF2023week1/Misc/%E6%B5%81%E9%87%8F%EF%BC%81%E9%B2%A8%E9%B1%BC%EF%BC%81/5.png"><br>base64编码解密得出flag<br>flag{Wri35h4rk_1s_u53ful_b72a609537e6}</p>
+<h2 id="压缩包们"><a href="#压缩包们" class="headerlink" title="压缩包们"></a>压缩包们</h2><p><img src="/2023/10/09/NewStarCTF2023week1/Misc/%E5%8E%8B%E7%BC%A9%E5%8C%85%E4%BB%AC/1.png"><br>用压缩软件打开，发现一个flag.zip，但提示文件损坏<br><img src="/2023/10/09/NewStarCTF2023week1/Misc/%E5%8E%8B%E7%BC%A9%E5%8C%85%E4%BB%AC/2.png"><br><img src="/2023/10/09/NewStarCTF2023week1/Misc/%E5%8E%8B%E7%BC%A9%E5%8C%85%E4%BB%AC/3.png"><br><img src="/2023/10/09/NewStarCTF2023week1/Misc/%E5%8E%8B%E7%BC%A9%E5%8C%85%E4%BB%AC/4.png"><br>进入十六进制文件，发现文件头损坏，修复后可以成功解压缩<br><img src="/2023/10/09/NewStarCTF2023week1/Misc/%E5%8E%8B%E7%BC%A9%E5%8C%85%E4%BB%AC/5.png"><br>但又发现flag.zip也是损坏的，继续查看flag.zip的十六进制文件<br><img src="/2023/10/09/NewStarCTF2023week1/Misc/%E5%8E%8B%E7%BC%A9%E5%8C%85%E4%BB%AC/6.png"><br><img src="/2023/10/09/NewStarCTF2023week1/Misc/%E5%8E%8B%E7%BC%A9%E5%8C%85%E4%BB%AC/7.png"><br>修复完成，但需要密码，在flag.zip的十六进制中，发现了一串疑似base64编码的字符串，尝试解密<br><img src="/2023/10/09/NewStarCTF2023week1/Misc/%E5%8E%8B%E7%BC%A9%E5%8C%85%E4%BB%AC/8.png"><br>解密发现，给了我们一个密码是6位数字的提示，那就只能爆破一下<br><img src="/2023/10/09/NewStarCTF2023week1/Misc/%E5%8E%8B%E7%BC%A9%E5%8C%85%E4%BB%AC/9.png"><br>爆破得到密码，解压flag.zip<br><img src="/2023/10/09/NewStarCTF2023week1/Misc/%E5%8E%8B%E7%BC%A9%E5%8C%85%E4%BB%AC/10.png"><br>查看flag.txt，得到flag<br>flag{y0u_ar3_the_m4ter_of_z1111ppp_606a4adc}</p>
+<h2 id="隐秘的眼睛"><a href="#隐秘的眼睛" class="headerlink" title="隐秘的眼睛"></a>隐秘的眼睛</h2><p><img src="/2023/10/09/NewStarCTF2023week1/Misc/%E9%9A%90%E7%A7%98%E7%9A%84%E7%9C%BC%E7%9D%9B/1.png"><br>图片上有一些小点，尝试解码<br><img src="/2023/10/09/NewStarCTF2023week1/Misc/%E9%9A%90%E7%A7%98%E7%9A%84%E7%9C%BC%E7%9D%9B/2.png"><br>flag就出来了<br>flag{R0ck1ng_y0u_63b0dc13a591}</p>
 
       
+  </article>
 
-     
+  
+      
 
-     
-</footer>
- 
-                    <!-- footer end -->
+  
+  
+  <div class="nexmoe-post-meta nexmoe-rainbow">
+    
+        <a class="nexmoefont icon-appstore-fill -link" href="/categories/CTF/">CTF</a>
+    
+    
+        <a class="nexmoefont icon-tag-fill -none-link" href="/tags/CTF/" rel="tag">CTF</a>
+    
+</div>
 
-                </div>
+  
+      <div class="nexmoe-post-footer">
+          请在你的配置文件中设置评论框插槽
+      </div>
+  
+</div>
+            <div class="nexmoe-post-right">
+              <div class="nexmoe-fixed">
+                  <div class="nexmoe-tool"> 
+                    
+                      
+                        
+                          
+                          
+                              <button class="mdui-fab catalog" style="overflow:unset;">
+                                  <i class="nexmoefont icon-i-catalog"></i>
+                                  <div class="nexmoe-toc">
+                                      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Web"><span class="toc-number">1.</span> <span class="toc-text">Web</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Begin-of-PHP"><span class="toc-number">1.1.</span> <span class="toc-text">Begin of PHP</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%B3%84%E6%BC%8F%E7%9A%84%E7%A7%98%E5%AF%86"><span class="toc-number">1.2.</span> <span class="toc-text">泄漏的秘密</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Begin-of-Upload"><span class="toc-number">1.3.</span> <span class="toc-text">Begin of Upload</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Begin-of-HTTP"><span class="toc-number">1.4.</span> <span class="toc-text">Begin of HTTP</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#ErrorFlask"><span class="toc-number">1.5.</span> <span class="toc-text">ErrorFlask</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#R-C-E"><span class="toc-number">1.6.</span> <span class="toc-text">R!C!E!</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#EasyLogin"><span class="toc-number">1.7.</span> <span class="toc-text">EasyLogin</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#CRYPTO"><span class="toc-number">2.</span> <span class="toc-text">CRYPTO</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Brainfuck"><span class="toc-number">2.1.</span> <span class="toc-text">Brainfuck</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Caesar%E2%80%99s-Secert"><span class="toc-number">2.2.</span> <span class="toc-text">Caesar’s Secert</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Fence"><span class="toc-number">2.3.</span> <span class="toc-text">Fence</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Vigenere"><span class="toc-number">2.4.</span> <span class="toc-text">Vigenère</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Babyencoding"><span class="toc-number">2.5.</span> <span class="toc-text">Babyencoding</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Misc"><span class="toc-number">3.</span> <span class="toc-text">Misc</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#CyberChef%E2%80%99s-Secret"><span class="toc-number">3.1.</span> <span class="toc-text">CyberChef’s Secret</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9C%BA%E5%AF%86%E5%9B%BE%E7%89%87"><span class="toc-number">3.2.</span> <span class="toc-text">机密图片</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%A9%BA%E7%99%BD%E6%A0%BC"><span class="toc-number">3.3.</span> <span class="toc-text">空白格</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%B5%81%E9%87%8F%EF%BC%81%E9%B2%A8%E9%B1%BC%EF%BC%81"><span class="toc-number">3.4.</span> <span class="toc-text">流量！鲨鱼！</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8E%8B%E7%BC%A9%E5%8C%85%E4%BB%AC"><span class="toc-number">3.5.</span> <span class="toc-text">压缩包们</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%9A%90%E7%A7%98%E7%9A%84%E7%9C%BC%E7%9D%9B"><span class="toc-number">3.6.</span> <span class="toc-text">隐秘的眼睛</span></a></li></ol></li></ol>
+                                  </div>
+                              </button>
+                          
+                          
+                      
+                    
+                      <a href="#nexmoe-content" class="toc-link" aria-label="Back To Top" title="top"><button class="mdui-fab mdui-ripple"><i class="nexmoefont icon-caret-top"></i></button></a>
+                  </div>
+              </div>
             </div>
         </div>
     </div>
+    <div id="nexmoe-search-space">
+	<div class="search-container">
+		<div class="search-header">
+			<div class="search-input-container">
+				<input
+					class="search-input"
+					type="text"
+					placeholder="Search"
+					oninput="sinput();"
+				/>
+			</div>
+			<a class="search-close" onclick="sclose();">×</a>
+		</div>
+		<div class="search-body"></div>
+	</div>
 </div>
-            <!-- body end -->
-
-            
-
-    <div id="post-toc" class="trm-post-toc">
-      <div class="trm-post-toc-header">
-        目录导航
-      </div>
-      <div class="trm-post-toc-content">
-        <ol class="trm-toc"><li class="trm-toc-item trm-toc-level-1"><a rel="nofollow" class="trm-toc-link" href="#Web"><span class="trm-toc-number">1.</span> <span class="trm-toc-text">Web</span></a><ol class="trm-toc-child"><li class="trm-toc-item trm-toc-level-2"><a rel="nofollow" class="trm-toc-link" href="#Begin-of-PHP"><span class="trm-toc-number">1.1.</span> <span class="trm-toc-text">Begin of PHP</span></a></li><li class="trm-toc-item trm-toc-level-2"><a rel="nofollow" class="trm-toc-link" href="#泄漏的秘密"><span class="trm-toc-number">1.2.</span> <span class="trm-toc-text">泄漏的秘密</span></a></li><li class="trm-toc-item trm-toc-level-2"><a rel="nofollow" class="trm-toc-link" href="#Begin-of-Upload"><span class="trm-toc-number">1.3.</span> <span class="trm-toc-text">Begin of Upload</span></a></li><li class="trm-toc-item trm-toc-level-2"><a rel="nofollow" class="trm-toc-link" href="#Begin-of-HTTP"><span class="trm-toc-number">1.4.</span> <span class="trm-toc-text">Begin of HTTP</span></a></li><li class="trm-toc-item trm-toc-level-2"><a rel="nofollow" class="trm-toc-link" href="#ErrorFlask"><span class="trm-toc-number">1.5.</span> <span class="trm-toc-text">ErrorFlask</span></a></li><li class="trm-toc-item trm-toc-level-2"><a rel="nofollow" class="trm-toc-link" href="#R-C-E"><span class="trm-toc-number">1.6.</span> <span class="trm-toc-text">R!C!E!</span></a></li><li class="trm-toc-item trm-toc-level-2"><a rel="nofollow" class="trm-toc-link" href="#EasyLogin"><span class="trm-toc-number">1.7.</span> <span class="trm-toc-text">EasyLogin</span></a></li></ol></li><li class="trm-toc-item trm-toc-level-1"><a rel="nofollow" class="trm-toc-link" href="#CRYPTO"><span class="trm-toc-number">2.</span> <span class="trm-toc-text">CRYPTO</span></a><ol class="trm-toc-child"><li class="trm-toc-item trm-toc-level-2"><a rel="nofollow" class="trm-toc-link" href="#Brainfuck"><span class="trm-toc-number">2.1.</span> <span class="trm-toc-text">Brainfuck</span></a></li><li class="trm-toc-item trm-toc-level-2"><a rel="nofollow" class="trm-toc-link" href="#Caesar’s-Secert"><span class="trm-toc-number">2.2.</span> <span class="trm-toc-text">Caesar’s Secert</span></a></li><li class="trm-toc-item trm-toc-level-2"><a rel="nofollow" class="trm-toc-link" href="#Fence"><span class="trm-toc-number">2.3.</span> <span class="trm-toc-text">Fence</span></a></li><li class="trm-toc-item trm-toc-level-2"><a rel="nofollow" class="trm-toc-link" href="#Vigenere"><span class="trm-toc-number">2.4.</span> <span class="trm-toc-text">Vigenère</span></a></li><li class="trm-toc-item trm-toc-level-2"><a rel="nofollow" class="trm-toc-link" href="#Babyencoding"><span class="trm-toc-number">2.5.</span> <span class="trm-toc-text">Babyencoding</span></a></li></ol></li><li class="trm-toc-item trm-toc-level-1"><a rel="nofollow" class="trm-toc-link" href="#Misc"><span class="trm-toc-number">3.</span> <span class="trm-toc-text">Misc</span></a><ol class="trm-toc-child"><li class="trm-toc-item trm-toc-level-2"><a rel="nofollow" class="trm-toc-link" href="#CyberChef’s-Secret"><span class="trm-toc-number">3.1.</span> <span class="trm-toc-text">CyberChef’s Secret</span></a></li><li class="trm-toc-item trm-toc-level-2"><a rel="nofollow" class="trm-toc-link" href="#机密图片"><span class="trm-toc-number">3.2.</span> <span class="trm-toc-text">机密图片</span></a></li><li class="trm-toc-item trm-toc-level-2"><a rel="nofollow" class="trm-toc-link" href="#空白格"><span class="trm-toc-number">3.3.</span> <span class="trm-toc-text">空白格</span></a></li><li class="trm-toc-item trm-toc-level-2"><a rel="nofollow" class="trm-toc-link" href="#流量！鲨鱼！"><span class="trm-toc-number">3.4.</span> <span class="trm-toc-text">流量！鲨鱼！</span></a></li><li class="trm-toc-item trm-toc-level-2"><a rel="nofollow" class="trm-toc-link" href="#压缩包们"><span class="trm-toc-number">3.5.</span> <span class="trm-toc-text">压缩包们</span></a></li><li class="trm-toc-item trm-toc-level-2"><a rel="nofollow" class="trm-toc-link" href="#隐秘的眼睛"><span class="trm-toc-number">3.6.</span> <span class="trm-toc-text">隐秘的眼睛</span></a></li></ol></li></ol>
-      </div>
-    </div>
-
-            
-<div class="trm-fixed-container">
-    
-        <div class="trm-fixed-btn post-toc-btn" data-title="目录">
-            <i class="iconfont fas fa-th-list"></i>
-        </div>
-    
-    
-        <div class="trm-fixed-btn" data-title="阅读模式" onclick="asyncFun.switchReadMode()">
-            <i class="iconfont fas fa-book-reader"></i>
-        </div>
-    
-    
-    <div id="trm-back-top" class="trm-fixed-btn" data-title="回到顶部">
-        <i class="iconfont fas fa-arrow-up"></i>
-    </div>
-</div>
-        </div>
-      </div>
-      <!-- scroll container end -->
-  </div>
-  <!-- app wrapper end -->
-
-  
-  <!-- Plugin -->
-
-
-
 
     
-    
-<script src="https://npm.elemecdn.com/@fancyapps/ui@4.0/dist/fancybox.umd.js"></script>
-
-    
-
-    
-        <script src="/js/plugins/typing.js?v=2.1.2"></script>
-    
-
-    
-
-    <!-- 数学公式 -->
-    
-
-    <!-- 评论插件 -->
-    
-        
-
-        
-    
+<script src="/lib/mdui_043tiny/mdui.js"></script>
+<script src="/lib/jquery.min.js"></script>
+<script src="/lib/justifiedGallery/jquery.justifiedGallery.min.js"></script>
+<script src="/lib/fancybox/fancybox.umd.js"></script>
 
 
+ 
 
-<!-- CDN -->
+<script async src="/js/app.js?v=1699283245781"></script>
 
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2058306854838448" crossorigin="anonymous"></script>
 
-    
-
-    
-
-    
-
-
-
-
-    <!-- Service Worker -->
-    
-    <!-- baidu push -->
-    
-
-
-<script id="async-script" src="/js/main.js?v=2.1.2"></script>
+<script>
+	$(".justified-gallery").justifiedGallery({
+		rowHeight: 160,
+		margins: 10,
+	});
+</script>
 
 </body>
 
