@@ -7,21 +7,22 @@
 <meta name="full-screen" content="yes">
 <meta name="theme-color" content="#317EFB" />
 <meta content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=0" name="viewport">
-<meta name="description" content="php:&#x2F;&#x2F;input(接收POST提交过来的值)利用条件：  allow_url_fopen&#x3D;on allow_url_include&#x3D;on php版本小于等于5.3.0  利用方式： ?c&#x3D;php:&#x2F;&#x2F;input POST传入参数： 1&lt;?php phpinfo()?&gt;  php:&#x2F;&#x2F;filt">
+<meta name="description" content="简述无参rce，就是说在无法传入参数的情况下，仅仅依靠传入没有参数的函数套娃就可以达到命令执行的效果。 核心代码123if(&amp;#x27;;&amp;#x27; &#x3D;&#x3D;&#x3D; preg_replace(&amp;#x27;&#x2F;[^\W]+\((?R)?\)&#x2F;&amp;#x27;, &amp;#x27;&amp;#x27;, $_GET[&amp;#x27;code&amp;#x27;])) &amp;#123;        eval($_GET[&amp;#x27;code&amp;">
 <meta property="og:type" content="article">
-<meta property="og:title" content="php伪协议">
-<meta property="og:url" content="http://example.com/2023/11/20/php%E4%BC%AA%E5%8D%8F%E8%AE%AE/index.html">
+<meta property="og:title" content="hao11">
+<meta property="og:url" content="http://example.com/2023/11/20/%E6%97%A0%E5%8F%82RCE/index.html">
 <meta property="og:site_name" content="hao11">
-<meta property="og:description" content="php:&#x2F;&#x2F;input(接收POST提交过来的值)利用条件：  allow_url_fopen&#x3D;on allow_url_include&#x3D;on php版本小于等于5.3.0  利用方式： ?c&#x3D;php:&#x2F;&#x2F;input POST传入参数： 1&lt;?php phpinfo()?&gt;  php:&#x2F;&#x2F;filt">
+<meta property="og:description" content="简述无参rce，就是说在无法传入参数的情况下，仅仅依靠传入没有参数的函数套娃就可以达到命令执行的效果。 核心代码123if(&amp;#x27;;&amp;#x27; &#x3D;&#x3D;&#x3D; preg_replace(&amp;#x27;&#x2F;[^\W]+\((?R)?\)&#x2F;&amp;#x27;, &amp;#x27;&amp;#x27;, $_GET[&amp;#x27;code&amp;#x27;])) &amp;#123;        eval($_GET[&amp;#x27;code&amp;">
 <meta property="og:locale">
-<meta property="article:published_time" content="2023-11-20T03:39:19.983Z">
-<meta property="article:modified_time" content="2023-11-20T13:17:57.702Z">
+<meta property="og:image" content="http://example.com/img/404.jpg">
+<meta property="article:published_time" content="2023-11-20T13:25:20.206Z">
+<meta property="article:modified_time" content="2023-11-20T14:50:21.728Z">
 <meta property="article:author" content="hao11">
-<meta property="article:tag" content="php">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/img/404.jpg">
 
 
-<title >php伪协议</title>
+<title >hao11</title>
 
 <!-- Favicon -->
 
@@ -64,7 +65,7 @@
 
 <!-- Variable -->
 <script>window.ASYNC_CONFIG = {"hostname":"example.com","author":"hao11","root":"/","typed_text":["to Hao11's blog"],"theme_version":"2.1.2","theme":{"switch":true,"default":"auto"},"favicon":{"logo":"log.svg","icon16":"log1.svg","icon32":"log.svg","appleTouchIcon":"log.svg","webmanifest":"/site.webmanifest","visibilitychange":true,"hidden":"log2.svg","showText":"(/≧▽≦/)咦！又好了！","hideText":"(●—●)喔哟，崩溃啦！"},"i18n":{"placeholder":"搜索文章...","empty":"找不到您查询的内容: ${query}","hits":"找到 ${hits} 条结果","hits_time":"找到 ${hits} 条结果（用时 ${time} 毫秒）","author":"本文作者：","copyright_link":"本文链接：","copyright_license_title":"版权声明：","copyright_license_content":"本博客所有文章除特别声明外，均默认采用 undefined 许可协议。","copy_success":"复制成功","copy_failure":"复制失败","open_read_mode":"进入阅读模式","exit_read_mode":"退出阅读模式","notice_outdate_message":"距离上次更新已经 undefined 天了, 文章内容可能已经过时。","just":"刚刚","min":"分钟前","hour":"小时前","day":"天前","month":"个月前"},"swup":false,"plugin":{"flickr_justified_gallery":"https://npm.elemecdn.com/flickr-justified-gallery@latest/dist/fjGallery.min.js"},"icons":{"sun":"far fa-sun","moon":"far fa-moon","play":"fas fa-play","email":"far fa-envelope","next":"fas fa-arrow-right","calendar":"far fa-calendar-alt","clock":"far fa-clock","user":"far fa-user","back_top":"fas fa-arrow-up","close":"fas fa-times","search":"fas fa-search","reward":"fas fa-hand-holding-usd","user_tag":"fas fa-user-alt","toc_tag":"fas fa-th-list","read":"fas fa-book-reader","arrows":"fas fa-arrows-alt-h","double_arrows":"fas fa-angle-double-down","copy":"fas fa-copy"},"icontype":"font","highlight":{"plugin":"highlighjs","theme":true,"copy":true,"lang":true,"title":"default","height_limit":false},"toc":{"post_title":false}};</script>
-<script id="async-page-config">window.PAGE_CONFIG = {"isPost":true,"isHome":false,"postUpdate":"2023-11-20 21:17:57"};</script>
+<script id="async-page-config">window.PAGE_CONFIG = {"isPost":true,"isHome":false,"postUpdate":"2023-11-20 22:50:21"};</script>
 
 <!-- Theme mode css -->
 <link data-swup-theme rel="stylesheet" href="/css/index.css?v=2.1.2" id="trm-switch-style">
@@ -219,7 +220,7 @@
                             NEWS LETTER
                         </div>
                         <h1 class="trm-mb-30 trm-hsmb-font">
-                            php伪协议
+                            
                         </h1>
 
                         
@@ -332,7 +333,7 @@
     <div class="col-sm-4">
         <div class="trm-card trm-label trm-label-light text-center">
             <i class="iconfont far fa-clock trm-icon"></i><br>
-            11:39
+            21:25
         </div>
     </div>
     <div class="col-sm-4">
@@ -344,59 +345,45 @@
 </div>
 <div class="trm-card ">
     <article id="article-container" class="trm-publication">
-    <h1 id="php-input-接收POST提交过来的值"><a href="#php-input-接收POST提交过来的值" class="headerlink" title="php:&#x2F;&#x2F;input(接收POST提交过来的值)"></a>php:&#x2F;&#x2F;input(接收POST提交过来的值)</h1><p><strong>利用条件：</strong></p>
-<ol>
-<li>allow_url_fopen&#x3D;on</li>
-<li>allow_url_include&#x3D;on</li>
-<li>php版本小于等于5.3.0</li>
-</ol>
-<p><strong>利用方式：</strong></p>
-<p>?c&#x3D;php:&#x2F;&#x2F;input</p>
-<p>POST传入参数：</p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span> <span class="title function_ invoke__">phpinfo</span>()<span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
+    <h1 id="简述"><a href="#简述" class="headerlink" title="简述"></a>简述</h1><p>无参rce，就是说在无法传入参数的情况下，仅仅依靠传入没有参数的函数套娃就可以达到命令执行的效果。</p>
+<h1 id="核心代码"><a href="#核心代码" class="headerlink" title="核心代码"></a>核心代码</h1><figure class="highlight autoit"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span>(<span class="string">&#x27;;&#x27;</span> === preg_replace(<span class="string">&#x27;/[^\W]+\((?R)?\)/&#x27;</span>, <span class="string">&#x27;&#x27;</span>, $_GET[<span class="string">&#x27;code&#x27;</span>])) &#123;    </span><br><span class="line">    <span class="built_in">eval</span>($_GET[<span class="string">&#x27;code&#x27;</span>])<span class="comment">;</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<h1 id="php-filter"><a href="#php-filter" class="headerlink" title="php:&#x2F;&#x2F;filter"></a>php:&#x2F;&#x2F;filter</h1><p><strong>利用条件：</strong></p>
-<ol>
-<li>allow_url_fopen&#x3D;on</li>
-<li>allow_url_include没有要求</li>
-</ol>
-<p><strong>利用方式：</strong></p>
-<p>php:<em>&#x2F;&#x2F;filter&#x2F;过滤器|过滤器&#x2F;resource&#x3D;要过滤的数据流</em></p>
-<p>无过滤器：</p>
-<p>php:&#x2F;&#x2F;filter&#x2F;resource&#x3D;</p>
-<p>字符串过滤器：</p>
-<p>php:&#x2F;&#x2F;filter&#x2F;read&#x3D;string.rot13&#x2F;resource&#x3D;<br>php:&#x2F;&#x2F;filter&#x2F;read&#x3D;string.toupper&#x2F;resource&#x3D;<br>php:&#x2F;&#x2F;filter&#x2F;read&#x3D;string.tolower&#x2F;resource&#x3D;<br>php:&#x2F;&#x2F;filter&#x2F;read&#x3D;string.string_tags&#x2F;resource&#x3D;</p>
-<p>转换过滤器：</p>
-<p>php:&#x2F;&#x2F;filter&#x2F;read&#x3D;convert.base64-encode&#x2F;resource&#x3D;<br>php:&#x2F;&#x2F;filter&#x2F;read&#x3D;convert.quoted-printable-encode&#x2F;resource&#x3D;</p>
-<p>参考链接：<a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_61839115/article/details/128593214">https://blog.csdn.net/qq_61839115/article/details/128593214</a></p>
-<h1 id="data-text-plain"><a href="#data-text-plain" class="headerlink" title="data:text&#x2F;plain"></a>data:text&#x2F;plain</h1><p><strong>利用条件：</strong></p>
-<ol>
-<li>allow_url_fopen&#x3D;ON</li>
-<li>allow_url_include&#x3D;ON</li>
-<li>php版本大于5.2</li>
-</ol>
-<p><strong>利用方式：</strong></p>
-<p>data:text&#x2F;plain,<?php phpinfo();?></p>
-<h1 id="data-text-plain-base64"><a href="#data-text-plain-base64" class="headerlink" title="data:text&#x2F;plain;base64,"></a>data:text&#x2F;plain;base64,</h1><p><strong>利用方式：</strong></p>
-<p>同data:text&#x2F;plain,但是需要进行base64编码和url编码。</p>
-<h1 id="phar"><a href="#phar" class="headerlink" title="phar:&#x2F;&#x2F;"></a>phar:&#x2F;&#x2F;</h1><p><strong>phar:&#x2F;&#x2F;[压缩文件路径]&#x2F;[压缩文件内的子文件名]</strong></p>
-<p><strong>利用条件</strong>：</p>
-<p>php版本大于等于5.3.0</p>
-<p><strong>利用方式</strong>：</p>
-<p>利用思路：将一句话木马添加到压缩包2.zip中，然后将2.zip上传到目标服务器上。</p>
-<p>使用：page&#x3D;phar:&#x2F;&#x2F;2.zip&#x2F;2.php</p>
-<h1 id="file"><a href="#file" class="headerlink" title="file:"></a>file:</h1><p><strong>利用条件</strong>：</p>
-<p>对allow_url_fopen和allow_url_include不做要求</p>
-<p><strong>利用方式</strong>：</p>
-<p>file:&#x2F;&#x2F;需要读取文件的路径</p>
-<h1 id="zip"><a href="#zip" class="headerlink" title="zip&#x2F;&#x2F;"></a>zip&#x2F;&#x2F;</h1><p><strong>zip:&#x2F;&#x2F;[压缩文件路径]#[压缩文件内的子文件名]</strong></p>
-<p><strong>利用思路：</strong></p>
-<p>将一句话木马添加到压缩包1.zip中，然后将1.zip重命名成1.jpg上传到目标服务器上。</p>
-<p><strong>利用方式：</strong></p>
-<p>zip:&#x2F;&#x2F;1.jpg%231.php 执行一句话木马</p>
-<p>参考链接：</p>
-<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/liwenqianye/article/details/122063190">https://blog.csdn.net/liwenqianye/article/details/122063190</a></p>
-<p><a target="_blank" rel="noopener" href="https://blog.51cto.com/u_14008060/6314622">https://blog.51cto.com/u_14008060/6314622</a></p>
+<p><img src="/./%E6%97%A0%E5%8F%82RCE/image-20231120212854109.png" alt="image-20231120212854109" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<h1 id="函数"><a href="#函数" class="headerlink" title="函数"></a>函数</h1><h2 id="1-getallheaders"><a href="#1-getallheaders" class="headerlink" title="1.getallheaders()"></a>1.getallheaders()</h2><p>这个函数的作用是获取<code>http</code>所有的头部信息，也就是<code>headers</code>，然后我们可以用<code>var_dump</code>把它打印出来，但这个有个限制条件就是必须在<code>apache</code>的环境下可以使用，其它环境都是用不了的。</p>
+<p><strong>一般的使用方式：</strong></p>
+<p>打印：var_dump(getallheaders())</p>
+<p>执行：eval(getallheaders())</p>
+<h2 id="2-get-defined-vars"><a href="#2-get-defined-vars" class="headerlink" title="2.get_defined_vars()"></a>2.get_defined_vars()</h2><p><code>getallheaders()</code>是有局限性的，因为如果中间件不是<code>apache</code>的话，它就用不了了，那我们就介绍一种更为普遍的方法<code>get_defined_vars()</code></p>
+<p>并不是获取的<code>headers</code>，而是获取的四个全局变量<code>$_GET $_POST $_FILES $_COOKIE</code></p>
+<p><strong>一般的使用方式：</strong></p>
+<p>打印：var_dump(current(get_defined_vars())</p>
+<p>执行：eval(current(get_defined_vars())</p>
+<p>执行时，需将恶意代码传入变量中</p>
+<h2 id="3-session-id"><a href="#3-session-id" class="headerlink" title="3.session_id()"></a>3.session_id()</h2><p>把恶意代码写到<code>COOKIE</code>的<code>PHPSESSID</code>中，然后利用<code>session_id()</code>这个函数去读取它，返回一个字符串</p>
+<p><code>session_id()</code>要开启<code>session</code>才能用，所以说要先<code>session_start()</code></p>
+<p><strong>一般的使用方式</strong>：</p>
+<p>打印：var_dump(session_id(session_start()))</p>
+<p>1.直接读取文件</p>
+<p>readfile(session_id(session_start()))<em>;</em></p>
+<p>2.<code>PHPSESSIID</code>中只能有<code>A-Z a-z 0-9</code>,先将恶意代码16进制编码以后再插入进去，而在php中，将16进制转换为字符串的函数为<code>hex2bin</code></p>
+<p>eval(hex2bin(session_id(session_start()))</p>
+<h2 id="4-scandir"><a href="#4-scandir" class="headerlink" title="4.scandir()"></a>4.scandir()</h2><p>将返回当前目录中的所有文件和目录的列表。返回的结果是一个数组，其中包含当前目录下的所有文件和目录名称（glob()可替换）</p>
+<h2 id="5-localeconv"><a href="#5-localeconv" class="headerlink" title="5.localeconv()"></a>5.localeconv()</h2><p>返回一包含本地数字及货币格式信息的数组。（但是这里数组第一项就是‘.’，这个.的用处很大）</p>
+<h2 id="6-current"><a href="#6-current" class="headerlink" title="6.current()"></a>6.current()</h2><p>返回数组中的单元，默认取第一个值。pos()和current()是同一个东西</p>
+<h2 id="7-getcwd"><a href="#7-getcwd" class="headerlink" title="7.getcwd()"></a>7.getcwd()</h2><p>取得当前工作目录</p>
+<h2 id="8-dirname"><a href="#8-dirname" class="headerlink" title="8.dirname()"></a>8.dirname()</h2><p>函数返回路径中的目录部分</p>
+<h2 id="9-array-flip"><a href="#9-array-flip" class="headerlink" title="9.array_flip()"></a>9.array_flip()</h2><p>交换数组中的键和值，成功时返回交换后的数组</p>
+<h2 id="10-array-rand"><a href="#10-array-rand" class="headerlink" title="10.array_rand()"></a>10.array_rand()</h2><p>从数组中随机取出一个或多个单元</p>
+<h2 id="11-array-reverse"><a href="#11-array-reverse" class="headerlink" title="11.array_reverse()"></a>11.array_reverse()</h2><p>将数组内容反转</p>
+<h2 id="12-chdir"><a href="#12-chdir" class="headerlink" title="12.chdir()"></a>12.chdir()</h2><p>函数改变当前的目录</p>
+<h2 id="13-读取文件内容"><a href="#13-读取文件内容" class="headerlink" title="13.读取文件内容"></a>13.读取文件内容</h2><p>hightlight_file()</p>
+<p>readfile()</p>
+<h2 id="14-show-source"><a href="#14-show-source" class="headerlink" title="14.show_source()"></a>14.show_source()</h2><p>查看源码</p>
+<h2 id="15-数组移动操作"><a href="#15-数组移动操作" class="headerlink" title="15.数组移动操作"></a>15.数组移动操作</h2><p>end() ： 将内部指针指向数组中的最后一个元素，并输出<br>next() ：将内部指针指向数组中的下一个元素，并输出<br>prev() ：将内部指针指向数组中的上一个元素，并输出<br>reset() ： 将内部指针指向数组中的第一个元素，并输出<br>each() ： 返回当前元素的键名和键值，并将内部指针向前移动</p>
+<h2 id="16-array-pop"><a href="#16-array-pop" class="headerlink" title="16.array_pop()"></a>16.array_pop()</h2><p>函数删除数组中的最后一个元素并返回其值。</p>
+<p>参考：</p>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/2301_76690905/article/details/133808536">https://blog.csdn.net/2301_76690905/article/details/133808536</a></p>
+<p><a target="_blank" rel="noopener" href="http://arsenetang.com/2021/07/26/RCE%E7%AF%87%E4%B9%8B%E6%97%A0%E5%8F%82%E6%95%B0rce/#%E6%A0%B8%E5%BF%83%E4%BB%A3%E7%A0%81">http://arsenetang.com/2021/07/26/RCE%E7%AF%87%E4%B9%8B%E6%97%A0%E5%8F%82%E6%95%B0rce/#%E6%A0%B8%E5%BF%83%E4%BB%A3%E7%A0%81</a></p>
 
 </article>
     
@@ -438,41 +425,10 @@
         </h5>
     </div>
     
-        <div class="col-lg-6">
-    <div class="trm-blog-card trm-scroll-animation">
-        <a href="/2023/11/20/%E6%97%A0%E5%8F%82RCE/" class="trm-cover-frame trm-anima-link">
-            
-            
-                <img alt="cover" class="no-fancybox" src="/img/block.jpg">
-            
-        </a>
-        
-        <div class="trm-card-descr">
-            <div class="trm-label trm-category trm-mb-20">
-                <a href=" #.">
-                    未分类
-                </a>
-            </div>
-            <h5>
-                <a href="/2023/11/20/%E6%97%A0%E5%8F%82RCE/" class="trm-anima-link">
-                    
-                </a>
-            </h5>
-            <div class="trm-divider trm-mb-20 trm-mt-20"></div>
-            <ul class="trm-card-data trm-label">
-                <li>23/11/20</li>
-                <li>21:25</li>
-                
-                
-            </ul>
-        </div>
-    </div>
-</div>
-    
     
         <div class="col-lg-6">
     <div class="trm-blog-card trm-scroll-animation">
-        <a href="/2023/11/15/php%E5%87%BD%E6%95%B0/" class="trm-cover-frame trm-anima-link">
+        <a href="/2023/11/20/php%E4%BC%AA%E5%8D%8F%E8%AE%AE/" class="trm-cover-frame trm-anima-link">
             
             
                 <img alt="cover" class="no-fancybox" src="/img/block.jpg">
@@ -486,14 +442,14 @@
                 </a>
             </div>
             <h5>
-                <a href="/2023/11/15/php%E5%87%BD%E6%95%B0/" class="trm-anima-link">
-                    php函数
+                <a href="/2023/11/20/php%E4%BC%AA%E5%8D%8F%E8%AE%AE/" class="trm-anima-link">
+                    php伪协议
                 </a>
             </h5>
             <div class="trm-divider trm-mb-20 trm-mt-20"></div>
             <ul class="trm-card-data trm-label">
-                <li>23/11/15</li>
-                <li>23:50</li>
+                <li>23/11/20</li>
+                <li>11:39</li>
                 
                 
             </ul>
@@ -545,7 +501,7 @@
         目录导航
       </div>
       <div class="trm-post-toc-content">
-        <ol class="trm-toc"><li class="trm-toc-item trm-toc-level-1"><a rel="nofollow" class="trm-toc-link" href="#php-input-接收POST提交过来的值"><span class="trm-toc-number">1.</span> <span class="trm-toc-text">php:&#x2F;&#x2F;input(接收POST提交过来的值)</span></a></li><li class="trm-toc-item trm-toc-level-1"><a rel="nofollow" class="trm-toc-link" href="#php-filter"><span class="trm-toc-number">2.</span> <span class="trm-toc-text">php:&#x2F;&#x2F;filter</span></a></li><li class="trm-toc-item trm-toc-level-1"><a rel="nofollow" class="trm-toc-link" href="#data-text-plain"><span class="trm-toc-number">3.</span> <span class="trm-toc-text">data:text&#x2F;plain</span></a></li><li class="trm-toc-item trm-toc-level-1"><a rel="nofollow" class="trm-toc-link" href="#data-text-plain-base64"><span class="trm-toc-number">4.</span> <span class="trm-toc-text">data:text&#x2F;plain;base64,</span></a></li><li class="trm-toc-item trm-toc-level-1"><a rel="nofollow" class="trm-toc-link" href="#phar"><span class="trm-toc-number">5.</span> <span class="trm-toc-text">phar:&#x2F;&#x2F;</span></a></li><li class="trm-toc-item trm-toc-level-1"><a rel="nofollow" class="trm-toc-link" href="#file"><span class="trm-toc-number">6.</span> <span class="trm-toc-text">file:</span></a></li><li class="trm-toc-item trm-toc-level-1"><a rel="nofollow" class="trm-toc-link" href="#zip"><span class="trm-toc-number">7.</span> <span class="trm-toc-text">zip&#x2F;&#x2F;</span></a></li></ol>
+        <ol class="trm-toc"><li class="trm-toc-item trm-toc-level-1"><a rel="nofollow" class="trm-toc-link" href="#简述"><span class="trm-toc-number">1.</span> <span class="trm-toc-text">简述</span></a></li><li class="trm-toc-item trm-toc-level-1"><a rel="nofollow" class="trm-toc-link" href="#核心代码"><span class="trm-toc-number">2.</span> <span class="trm-toc-text">核心代码</span></a></li><li class="trm-toc-item trm-toc-level-1"><a rel="nofollow" class="trm-toc-link" href="#函数"><span class="trm-toc-number">3.</span> <span class="trm-toc-text">函数</span></a><ol class="trm-toc-child"><li class="trm-toc-item trm-toc-level-2"><a rel="nofollow" class="trm-toc-link" href="#1-getallheaders"><span class="trm-toc-number">3.1.</span> <span class="trm-toc-text">1.getallheaders()</span></a></li><li class="trm-toc-item trm-toc-level-2"><a rel="nofollow" class="trm-toc-link" href="#2-get-defined-vars"><span class="trm-toc-number">3.2.</span> <span class="trm-toc-text">2.get_defined_vars()</span></a></li><li class="trm-toc-item trm-toc-level-2"><a rel="nofollow" class="trm-toc-link" href="#3-session-id"><span class="trm-toc-number">3.3.</span> <span class="trm-toc-text">3.session_id()</span></a></li><li class="trm-toc-item trm-toc-level-2"><a rel="nofollow" class="trm-toc-link" href="#4-scandir"><span class="trm-toc-number">3.4.</span> <span class="trm-toc-text">4.scandir()</span></a></li><li class="trm-toc-item trm-toc-level-2"><a rel="nofollow" class="trm-toc-link" href="#5-localeconv"><span class="trm-toc-number">3.5.</span> <span class="trm-toc-text">5.localeconv()</span></a></li><li class="trm-toc-item trm-toc-level-2"><a rel="nofollow" class="trm-toc-link" href="#6-current"><span class="trm-toc-number">3.6.</span> <span class="trm-toc-text">6.current()</span></a></li><li class="trm-toc-item trm-toc-level-2"><a rel="nofollow" class="trm-toc-link" href="#7-getcwd"><span class="trm-toc-number">3.7.</span> <span class="trm-toc-text">7.getcwd()</span></a></li><li class="trm-toc-item trm-toc-level-2"><a rel="nofollow" class="trm-toc-link" href="#8-dirname"><span class="trm-toc-number">3.8.</span> <span class="trm-toc-text">8.dirname()</span></a></li><li class="trm-toc-item trm-toc-level-2"><a rel="nofollow" class="trm-toc-link" href="#9-array-flip"><span class="trm-toc-number">3.9.</span> <span class="trm-toc-text">9.array_flip()</span></a></li><li class="trm-toc-item trm-toc-level-2"><a rel="nofollow" class="trm-toc-link" href="#10-array-rand"><span class="trm-toc-number">3.10.</span> <span class="trm-toc-text">10.array_rand()</span></a></li><li class="trm-toc-item trm-toc-level-2"><a rel="nofollow" class="trm-toc-link" href="#11-array-reverse"><span class="trm-toc-number">3.11.</span> <span class="trm-toc-text">11.array_reverse()</span></a></li><li class="trm-toc-item trm-toc-level-2"><a rel="nofollow" class="trm-toc-link" href="#12-chdir"><span class="trm-toc-number">3.12.</span> <span class="trm-toc-text">12.chdir()</span></a></li><li class="trm-toc-item trm-toc-level-2"><a rel="nofollow" class="trm-toc-link" href="#13-读取文件内容"><span class="trm-toc-number">3.13.</span> <span class="trm-toc-text">13.读取文件内容</span></a></li><li class="trm-toc-item trm-toc-level-2"><a rel="nofollow" class="trm-toc-link" href="#14-show-source"><span class="trm-toc-number">3.14.</span> <span class="trm-toc-text">14.show_source()</span></a></li><li class="trm-toc-item trm-toc-level-2"><a rel="nofollow" class="trm-toc-link" href="#15-数组移动操作"><span class="trm-toc-number">3.15.</span> <span class="trm-toc-text">15.数组移动操作</span></a></li><li class="trm-toc-item trm-toc-level-2"><a rel="nofollow" class="trm-toc-link" href="#16-array-pop"><span class="trm-toc-number">3.16.</span> <span class="trm-toc-text">16.array_pop()</span></a></li></ol></li></ol>
       </div>
     </div>
 
