@@ -7,12 +7,12 @@
 <meta name="full-screen" content="yes">
 <meta name="theme-color" content="#317EFB" />
 <meta content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=0" name="viewport">
-<meta name="description" content="Web游戏高手  开启环境，发现需要超过100000分才能获得flag，查看源码，发现控制分数的代码   控制台发送执行，开启游戏，发现分数更改，得到flag ez_sql  打开环境，发现是get传参给id值的sql注入  利用sqlmap成功得到flag include 0。0   根据代码内容，尝试使用php伪协议，进行突破，发现base64和rot被过滤，尝试使用其他编码，成功绕过，得到f">
+<meta name="description" content="Misc阳光开朗大男孩   下载得到两个txt文件，初步判断，一个是emoji解密，一个是社会主义核心价值观解密  解密社会主义核心价值观显示是有password，那么可以判断flag.txt是一个emoji-aes加密  emoji-aes解密，得到flag 2-分析  打开文件，排列HTTP，找到了一个类型与攻击的传参  追踪TCP流后，查看到数据包，200响应，判定存在漏洞的文件名是inde">
 <meta property="og:type" content="article">
-<meta property="og:title" content="NewStarCTF2023week2">
-<meta property="og:url" content="http://example.com/2023/10/15/NewStarCTF2023week2/index.html">
+<meta property="og:title" content="NewStarCTF2023week3">
+<meta property="og:url" content="http://example.com/2023/11/15/NewStarCTF2023week3/index.html">
 <meta property="og:site_name" content="hao11">
-<meta property="og:description" content="Web游戏高手  开启环境，发现需要超过100000分才能获得flag，查看源码，发现控制分数的代码   控制台发送执行，开启游戏，发现分数更改，得到flag ez_sql  打开环境，发现是get传参给id值的sql注入  利用sqlmap成功得到flag include 0。0   根据代码内容，尝试使用php伪协议，进行突破，发现base64和rot被过滤，尝试使用其他编码，成功绕过，得到f">
+<meta property="og:description" content="Misc阳光开朗大男孩   下载得到两个txt文件，初步判断，一个是emoji解密，一个是社会主义核心价值观解密  解密社会主义核心价值观显示是有password，那么可以判断flag.txt是一个emoji-aes加密  emoji-aes解密，得到flag 2-分析  打开文件，排列HTTP，找到了一个类型与攻击的传参  追踪TCP流后，查看到数据包，200响应，判定存在漏洞的文件名是inde">
 <meta property="og:locale">
 <meta property="og:image" content="http://example.com/img/404.jpg">
 <meta property="og:image" content="http://example.com/img/404.jpg">
@@ -35,23 +35,15 @@
 <meta property="og:image" content="http://example.com/img/404.jpg">
 <meta property="og:image" content="http://example.com/img/404.jpg">
 <meta property="og:image" content="http://example.com/img/404.jpg">
-<meta property="og:image" content="http://example.com/img/404.jpg">
-<meta property="og:image" content="http://example.com/img/404.jpg">
-<meta property="og:image" content="http://example.com/img/404.jpg">
-<meta property="og:image" content="http://example.com/img/404.jpg">
-<meta property="og:image" content="http://example.com/img/404.jpg">
-<meta property="og:image" content="http://example.com/img/404.jpg">
-<meta property="og:image" content="http://example.com/img/404.jpg">
-<meta property="og:image" content="http://example.com/img/404.jpg">
-<meta property="article:published_time" content="2023-10-14T17:11:11.402Z">
-<meta property="article:modified_time" content="2023-10-16T01:27:50.050Z">
+<meta property="article:published_time" content="2023-11-15T08:51:12.575Z">
+<meta property="article:modified_time" content="2023-11-15T08:59:14.380Z">
 <meta property="article:author" content="hao11">
 <meta property="article:tag" content="CTF">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="http://example.com/img/404.jpg">
 
 
-<title >NewStarCTF2023week2</title>
+<title >NewStarCTF2023week3</title>
 
 <!-- Favicon -->
 
@@ -94,7 +86,7 @@
 
 <!-- Variable -->
 <script>window.ASYNC_CONFIG = {"hostname":"example.com","author":"hao11","root":"/","typed_text":["to Hao11's blog"],"theme_version":"2.1.2","theme":{"switch":true,"default":"auto"},"favicon":{"logo":"log.svg","icon16":"log1.svg","icon32":"log.svg","appleTouchIcon":"log.svg","webmanifest":"/site.webmanifest","visibilitychange":true,"hidden":"log2.svg","showText":"(/≧▽≦/)咦！又好了！","hideText":"(●—●)喔哟，崩溃啦！"},"i18n":{"placeholder":"搜索文章...","empty":"找不到您查询的内容: ${query}","hits":"找到 ${hits} 条结果","hits_time":"找到 ${hits} 条结果（用时 ${time} 毫秒）","author":"本文作者：","copyright_link":"本文链接：","copyright_license_title":"版权声明：","copyright_license_content":"本博客所有文章除特别声明外，均默认采用 undefined 许可协议。","copy_success":"复制成功","copy_failure":"复制失败","open_read_mode":"进入阅读模式","exit_read_mode":"退出阅读模式","notice_outdate_message":"距离上次更新已经 undefined 天了, 文章内容可能已经过时。","just":"刚刚","min":"分钟前","hour":"小时前","day":"天前","month":"个月前"},"swup":false,"plugin":{"flickr_justified_gallery":"https://npm.elemecdn.com/flickr-justified-gallery@latest/dist/fjGallery.min.js"},"icons":{"sun":"far fa-sun","moon":"far fa-moon","play":"fas fa-play","email":"far fa-envelope","next":"fas fa-arrow-right","calendar":"far fa-calendar-alt","clock":"far fa-clock","user":"far fa-user","back_top":"fas fa-arrow-up","close":"fas fa-times","search":"fas fa-search","reward":"fas fa-hand-holding-usd","user_tag":"fas fa-user-alt","toc_tag":"fas fa-th-list","read":"fas fa-book-reader","arrows":"fas fa-arrows-alt-h","double_arrows":"fas fa-angle-double-down","copy":"fas fa-copy"},"icontype":"font","highlight":{"plugin":"highlighjs","theme":true,"copy":true,"lang":true,"title":"default","height_limit":false},"toc":{"post_title":false}};</script>
-<script id="async-page-config">window.PAGE_CONFIG = {"isPost":true,"isHome":false,"postUpdate":"2023-10-16 09:27:50"};</script>
+<script id="async-page-config">window.PAGE_CONFIG = {"isPost":true,"isHome":false,"postUpdate":"2023-11-15 16:59:14"};</script>
 
 <!-- Theme mode css -->
 <link data-swup-theme rel="stylesheet" href="/css/index.css?v=2.1.2" id="trm-switch-style">
@@ -249,7 +241,7 @@
                             NEWS LETTER
                         </div>
                         <h1 class="trm-mb-30 trm-hsmb-font">
-                            NewStarCTF2023week2
+                            NewStarCTF2023week3
                         </h1>
 
                         
@@ -356,13 +348,13 @@
     <div class="col-sm-4">
         <div class="trm-card trm-label trm-label-light text-center">
             <i class="iconfont far fa-calendar-alt trm-icon"></i><br>
-            10/15
+            11/15
         </div>
     </div>
     <div class="col-sm-4">
         <div class="trm-card trm-label trm-label-light text-center">
             <i class="iconfont far fa-clock trm-icon"></i><br>
-            01:11
+            16:51
         </div>
     </div>
     <div class="col-sm-4">
@@ -374,53 +366,42 @@
 </div>
 <div class="trm-card ">
     <article id="article-container" class="trm-publication">
-    <h1 id="Web"><a href="#Web" class="headerlink" title="Web"></a>Web</h1><h2 id="游戏高手"><a href="#游戏高手" class="headerlink" title="游戏高手"></a>游戏高手</h2><p><img src="/./NewStarCTF2023week2/image-20231015011112355.png" alt="image-20231015011112355" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
-<p><img src="/./NewStarCTF2023week2/image-20231015011354220.png" alt="image-20231015011354220" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
-<p>开启环境，发现需要超过100000分才能获得flag，查看源码，发现控制分数的代码</p>
-<p><img src="/./NewStarCTF2023week2/image-20231015011541606.png" alt="image-20231015011541606" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
-<p><img src="/./NewStarCTF2023week2/image-20231015011553661.png" alt="image-20231015011553661" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
-<p>控制台发送执行，开启游戏，发现分数更改，得到flag</p>
-<h2 id="ez-sql"><a href="#ez-sql" class="headerlink" title="ez_sql"></a>ez_sql</h2><p><img src="/./NewStarCTF2023week2/image-20231015012830148.png" alt="image-20231015012830148" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
-<p><img src="/./NewStarCTF2023week2/image-20231015012846664.png" alt="image-20231015012846664" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
-<p>打开环境，发现是get传参给id值的sql注入</p>
-<p><img src="/./NewStarCTF2023week2/image-20231015013012621.png" alt="image-20231015013012621" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
-<p>利用sqlmap成功得到flag</p>
-<h2 id="include-0。0"><a href="#include-0。0" class="headerlink" title="include 0。0"></a>include 0。0</h2><p><img src="/./NewStarCTF2023week2/image-20231015111258966.png" alt="image-20231015111258966" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
-<p><img src="/./NewStarCTF2023week2/image-20231015111322967.png" alt="image-20231015111322967" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
-<p><img src="/./NewStarCTF2023week2/image-20231015111336978.png" alt="image-20231015111336978" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
-<p>根据代码内容，尝试使用php伪协议，进行突破，发现base64和rot被过滤，尝试使用其他编码，成功绕过，得到flag。</p>
-<h2 id="Upload-again"><a href="#Upload-again" class="headerlink" title="Upload again!"></a>Upload again!</h2><p><img src="/./NewStarCTF2023week2/image-20231015113305897.png" alt="image-20231015113305897" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
-<p><img src="/./NewStarCTF2023week2/image-20231015113324203.png" alt="image-20231015113324203" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
-<p><img src="/./NewStarCTF2023week2/image-20231015113504011.png" alt="image-20231015113504011" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
-<p><img src="/./NewStarCTF2023week2/image-20231015113525753.png" alt="image-20231015113525753" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
-<p>测试发现，抓包更改后缀无法绕过，上传内容包含&lt;?会被检测</p>
-<p><img src="/./NewStarCTF2023week2/image-20231015113747049.png" alt="image-20231015113747049" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
-<p><img src="/./NewStarCTF2023week2/image-20231015113809397.png" alt="image-20231015113809397" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
-<p>上传.htaccess使jpg文件能执行，在上传用js代码编写的一句话木马</p>
-<p><img src="/./NewStarCTF2023week2/image-20231015114026046.png" alt="image-20231015114026046" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
-<p><img src="/./NewStarCTF2023week2/image-20231015114044521.png" alt="image-20231015114044521" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
-<p>使用蚁剑连接获得flag</p>
-<h2 id="Unserialize？"><a href="#Unserialize？" class="headerlink" title="Unserialize？"></a>Unserialize？</h2><p><img src="/./NewStarCTF2023week2/image-20231015145812591.png" alt="image-20231015145812591" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
-<p><img src="/./NewStarCTF2023week2/image-20231015145826507.png" alt="image-20231015145826507" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
-<p><img src="/./NewStarCTF2023week2/image-20231015145839271.png" alt="image-20231015145839271" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
-<p>利用了php反序列化和php函数绕过，直接参入参数，可得到flag</p>
-<h2 id="R-C-E"><a href="#R-C-E" class="headerlink" title="R!!C!!E!!"></a>R!!C!!E!!</h2><p><img src="/./NewStarCTF2023week2/image-20231015210621104.png" alt="image-20231015210621104" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
-<p><img src="/./NewStarCTF2023week2/image-20231015210631804.png" alt="image-20231015210631804" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
-<p><img src="/./NewStarCTF2023week2/image-20231015210722642.png" alt="image-20231015210722642" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
-<p>起初没有任何信息，但在尝试输入.git的时候，回显403，说明存在目录，但无法访问</p>
-<p><img src="/./NewStarCTF2023week2/image-20231015210957327.png" alt="image-20231015210957327" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
-<p><img src="/./NewStarCTF2023week2/image-20231015211123652.png" alt="image-20231015211123652" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
-<p>利用GitHack扫描得到.git泄露文件，查看得到源码</p>
-<p><img src="/./NewStarCTF2023week2/image-20231015211519333.png" alt="image-20231015211519333" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
-<p>根据源码指示，绕过preg_match，使用print_r进行打印</p>
-<p>利用getallheaders()返回所有的HTTP头信息</p>
-<p><img src="/./NewStarCTF2023week2/image-20231015211716791.png" alt="image-20231015211716791" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
-<p>将数组转化为字符串，且输出需要的值，一般可以用的函数有</p>
-<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="title">end</span><span class="params">()</span></span> - 将内部指针指向数组中的最后一个元素，并输出。</span><br><span class="line"><span class="function"><span class="title">next</span><span class="params">()</span></span> - 将内部指针指向数组中的下一个元素，并输出。</span><br><span class="line"><span class="function"><span class="title">prev</span><span class="params">()</span></span> - 将内部指针指向数组中的上一个元素，并输出。</span><br><span class="line"><span class="function"><span class="title">reset</span><span class="params">()</span></span> - 将内部指针指向数组中的第一个元素，并输出。</span><br><span class="line"><span class="function"><span class="title">each</span><span class="params">()</span></span> - 返回当前元素的键名和键值，并将内部指针向前移动。</span><br><span class="line"><span class="function"><span class="title">implode</span><span class="params">()</span></span> - 将一个数组转化为字符串</span><br></pre></td></tr></table></figure>
-
-<p>因为要end被限制，这里使用了next</p>
-<p><img src="/./NewStarCTF2023week2/image-20231015212141045.png" alt="image-20231015212141045" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
-<p>因为使用了next，输出的字符串是ua头，抓包更改us头，再将修改print_r为eval，成功得到flag</p>
+    <h1 id="Misc"><a href="#Misc" class="headerlink" title="Misc"></a>Misc</h1><h2 id="阳光开朗大男孩"><a href="#阳光开朗大男孩" class="headerlink" title="阳光开朗大男孩"></a>阳光开朗大男孩</h2><p><img src="/./NewStarCTF2023week3/image-20231015220104606.png" alt="image-20231015220104606" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<p><img src="/./NewStarCTF2023week3/image-20231015220115839.png" alt="image-20231015220115839" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<p><img src="/./NewStarCTF2023week3/image-20231015220126856.png" alt="image-20231015220126856" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<p>下载得到两个txt文件，初步判断，一个是emoji解密，一个是社会主义核心价值观解密</p>
+<p><img src="/./NewStarCTF2023week3/image-20231015220308969.png" alt="image-20231015220308969" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<p><a target="_blank" rel="noopener" href="http://www.hiencode.com/cvencode.html">解密社会主义核心价值观</a>显示是有password，那么可以判断flag.txt是一个emoji-aes加密</p>
+<p><img src="/./NewStarCTF2023week3/image-20231015220430594.png" alt="image-20231015220430594" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<p><a target="_blank" rel="noopener" href="https://aghorler.github.io/emoji-aes/">emoji-aes解密</a>，得到flag</p>
+<h2 id="2-分析"><a href="#2-分析" class="headerlink" title="2-分析"></a>2-分析</h2><p><img src="/./NewStarCTF2023week3/image-20231015230351478.png" alt="image-20231015230351478" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<p><img src="/./NewStarCTF2023week3/image-20231015230423534.png" alt="image-20231015230423534" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<p>打开文件，排列HTTP，找到了一个类型与攻击的传参</p>
+<p><img src="/./NewStarCTF2023week3/image-20231015230513859.png" alt="image-20231015230513859" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<p>追踪TCP流后，查看到数据包，200响应，判定存在漏洞的文件名是index.php，WevShell文件名是wh1t3g0d.php</p>
+<p><img src="/./NewStarCTF2023week3/image-20231015231321236.png" alt="image-20231015231321236" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<p><img src="/./NewStarCTF2023week3/image-20231015231330296.png" alt="image-20231015231330296" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<p>查找到一段类似于登录成功的数据包，追踪TCP流，果然是登录数据包，所以得到攻击者登录使用的用户名是best_admin</p>
+<p><img src="/./NewStarCTF2023week3/image-20231015231439689.png" alt="image-20231015231439689" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<p>根据题意进行<a target="_blank" rel="noopener" href="https://md5jiami.bmcx.com/">md5加密</a>，得到flag</p>
+<h2 id="大怨种"><a href="#大怨种" class="headerlink" title="大怨种"></a>大怨种</h2><p><img src="/./NewStarCTF2023week3/image-20231016004718650.png" alt="image-20231016004718650" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<p><img src="/./NewStarCTF2023week3/dyz.gif" alt="dyz" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<p>打开得到一张gif图片</p>
+<p><img src="/./NewStarCTF2023week3/image-20231016004836848.png" alt="image-20231016004836848" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<p><img src="/./NewStarCTF2023week3/1.png" alt="1" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<p>利用ps，得到一张汉信码</p>
+<p><img src="/./NewStarCTF2023week3/image-20231016004946504.png" alt="image-20231016004946504" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<p>利用<a target="_blank" rel="noopener" href="https://tuzim.net/hxdecode/">汉信码解密</a>得到flag</p>
+<h1 id="Web"><a href="#Web" class="headerlink" title="Web"></a>Web</h1><h2 id="Include-🍐"><a href="#Include-🍐" class="headerlink" title="Include 🍐"></a>Include 🍐</h2><p><img src="/./NewStarCTF2023week3/image-20231115165236503.png" alt="image-20231115165236503" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<p><img src="/./NewStarCTF2023week3/image-20231115165352799.png" alt="image-20231115165352799" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<p>查看代码与phpinfo配置，php伪协议被绕过，但满足register_argc_argv开启状态且存在文件包含，可尝试利用pearcmd.php漏洞</p>
+<p><img src="/./NewStarCTF2023week3/image-20231115165623626.png" alt="image-20231115165623626" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<p>构造payload传入，回显正常</p>
+<p><img src="/./NewStarCTF2023week3/image-20231115165749122.png" alt="image-20231115165749122" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<p>访问传入的后门代码，并传入参数执行</p>
+<p>确定flag存在于根目录下</p>
+<p><img src="/./NewStarCTF2023week3/image-20231115165858164.png" alt="image-20231115165858164" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<p>利用命令执行，查找flag</p>
 
 </article>
     
@@ -464,7 +445,7 @@
     
         <div class="col-lg-6">
     <div class="trm-blog-card trm-scroll-animation">
-        <a href="/2023/11/15/NewStarCTF2023week3/" class="trm-cover-frame trm-anima-link">
+        <a href="/2023/11/15/php%E5%87%BD%E6%95%B0/" class="trm-cover-frame trm-anima-link">
             
             
                 <img alt="cover" class="no-fancybox" src="/img/block.jpg">
@@ -473,19 +454,19 @@
         
         <div class="trm-card-descr">
             <div class="trm-label trm-category trm-mb-20">
-                <a href=" /categories/CTF/">
-                    CTF
+                <a href=" /categories/WEB/">
+                    WEB
                 </a>
             </div>
             <h5>
-                <a href="/2023/11/15/NewStarCTF2023week3/" class="trm-anima-link">
-                    NewStarCTF2023week3
+                <a href="/2023/11/15/php%E5%87%BD%E6%95%B0/" class="trm-anima-link">
+                    php函数
                 </a>
             </h5>
             <div class="trm-divider trm-mb-20 trm-mt-20"></div>
             <ul class="trm-card-data trm-label">
                 <li>23/11/15</li>
-                <li>16:51</li>
+                <li>23:50</li>
                 
                 
             </ul>
@@ -496,7 +477,7 @@
     
         <div class="col-lg-6">
     <div class="trm-blog-card trm-scroll-animation">
-        <a href="/2023/10/14/2023%20SWPU%20NSS/" class="trm-cover-frame trm-anima-link">
+        <a href="/2023/10/15/NewStarCTF2023week2/" class="trm-cover-frame trm-anima-link">
             
             
                 <img alt="cover" class="no-fancybox" src="/img/block.jpg">
@@ -510,14 +491,14 @@
                 </a>
             </div>
             <h5>
-                <a href="/2023/10/14/2023%20SWPU%20NSS/" class="trm-anima-link">
-                    2023 SWPU NSS
+                <a href="/2023/10/15/NewStarCTF2023week2/" class="trm-anima-link">
+                    NewStarCTF2023week2
                 </a>
             </h5>
             <div class="trm-divider trm-mb-20 trm-mt-20"></div>
             <ul class="trm-card-data trm-label">
-                <li>23/10/14</li>
-                <li>14:38</li>
+                <li>23/10/15</li>
+                <li>01:11</li>
                 
                 
             </ul>
@@ -569,7 +550,7 @@
         目录导航
       </div>
       <div class="trm-post-toc-content">
-        <ol class="trm-toc"><li class="trm-toc-item trm-toc-level-1"><a rel="nofollow" class="trm-toc-link" href="#Web"><span class="trm-toc-number">1.</span> <span class="trm-toc-text">Web</span></a><ol class="trm-toc-child"><li class="trm-toc-item trm-toc-level-2"><a rel="nofollow" class="trm-toc-link" href="#游戏高手"><span class="trm-toc-number">1.1.</span> <span class="trm-toc-text">游戏高手</span></a></li><li class="trm-toc-item trm-toc-level-2"><a rel="nofollow" class="trm-toc-link" href="#ez-sql"><span class="trm-toc-number">1.2.</span> <span class="trm-toc-text">ez_sql</span></a></li><li class="trm-toc-item trm-toc-level-2"><a rel="nofollow" class="trm-toc-link" href="#include-0。0"><span class="trm-toc-number">1.3.</span> <span class="trm-toc-text">include 0。0</span></a></li><li class="trm-toc-item trm-toc-level-2"><a rel="nofollow" class="trm-toc-link" href="#Upload-again"><span class="trm-toc-number">1.4.</span> <span class="trm-toc-text">Upload again!</span></a></li><li class="trm-toc-item trm-toc-level-2"><a rel="nofollow" class="trm-toc-link" href="#Unserialize？"><span class="trm-toc-number">1.5.</span> <span class="trm-toc-text">Unserialize？</span></a></li><li class="trm-toc-item trm-toc-level-2"><a rel="nofollow" class="trm-toc-link" href="#R-C-E"><span class="trm-toc-number">1.6.</span> <span class="trm-toc-text">R!!C!!E!!</span></a></li></ol></li></ol>
+        <ol class="trm-toc"><li class="trm-toc-item trm-toc-level-1"><a rel="nofollow" class="trm-toc-link" href="#Misc"><span class="trm-toc-number">1.</span> <span class="trm-toc-text">Misc</span></a><ol class="trm-toc-child"><li class="trm-toc-item trm-toc-level-2"><a rel="nofollow" class="trm-toc-link" href="#阳光开朗大男孩"><span class="trm-toc-number">1.1.</span> <span class="trm-toc-text">阳光开朗大男孩</span></a></li><li class="trm-toc-item trm-toc-level-2"><a rel="nofollow" class="trm-toc-link" href="#2-分析"><span class="trm-toc-number">1.2.</span> <span class="trm-toc-text">2-分析</span></a></li><li class="trm-toc-item trm-toc-level-2"><a rel="nofollow" class="trm-toc-link" href="#大怨种"><span class="trm-toc-number">1.3.</span> <span class="trm-toc-text">大怨种</span></a></li></ol></li><li class="trm-toc-item trm-toc-level-1"><a rel="nofollow" class="trm-toc-link" href="#Web"><span class="trm-toc-number">2.</span> <span class="trm-toc-text">Web</span></a><ol class="trm-toc-child"><li class="trm-toc-item trm-toc-level-2"><a rel="nofollow" class="trm-toc-link" href="#Include-🍐"><span class="trm-toc-number">2.1.</span> <span class="trm-toc-text">Include 🍐</span></a></li></ol></li></ol>
       </div>
     </div>
 
